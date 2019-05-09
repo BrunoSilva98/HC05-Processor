@@ -1,0 +1,4 @@
+vhdl work "ram.vhd"
+vhdl work "hc05.vhd"
+vhdl work "divclk.vhd"
+vhdl work "top.vhd"

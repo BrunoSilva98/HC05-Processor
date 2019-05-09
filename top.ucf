@@ -1,0 +1,11 @@
+NET "clk"            LOC = "V10" | IOSTANDARD = "LVCMOS33";
+NET "rst"            LOC = "T10" | IOSTANDARD = "LVCMOS33";
+
+NET "Led<0>"         LOC = "U16" | IOSTANDARD = "LVCMOS33";   
+NET "Led<1>"         LOC = "V16" | IOSTANDARD = "LVCMOS33";   
+NET "Led<2>"         LOC = "U15" | IOSTANDARD = "LVCMOS33";   
+NET "Led<3>"         LOC = "V15" | IOSTANDARD = "LVCMOS33";   
+NET "Led<4>"         LOC = "M11" | IOSTANDARD = "LVCMOS33";   
+NET "Led<5>"         LOC = "N11" | IOSTANDARD = "LVCMOS33";   
+NET "Led<6>"         LOC = "R11" | IOSTANDARD = "LVCMOS33";   
+NET "Led<7>"         LOC = "T11" | IOSTANDARD = "LVCMOS33"; 
