@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------
 -- Author:  Bruno Passos
--- Module:  Top
+-- Module:  HC05
 -- Version: 0.1 
 ----------------------------------------------------------------------------------
 
@@ -109,7 +109,7 @@ begin
 																ESTADO <= EXECUTA;
 															end if;	
 
-									when "00111011" => -- JMP Condicional zero - Codigo Operação 3B
+									when "00111011" => -- JMP Condicional se zero - Codigo Operação 3B
 															if FASE = "00" then 
 																PC <= PC + 1;
 																
@@ -124,6 +124,21 @@ begin
 																ESTADO <= EXECUTA;
 															end if;
 															
+									WHEN "00111100" => -- JMP Condicional se nao zero - Codigo Operação 3C
+															if FASE = "00" then
+																PC <= PC + 1;
+																
+																if A = "00000000" then
+																	ESTADO <= EXECUTA;
+																else
+																	FASE <= FASE + 1;
+																end if;
+															
+															elsif FASE = "01" then
+																PC <= dout - 1;
+																ESTADO <= EXECUTA;
+															end if;
+									
 									when "01111010" => -- DEC A - Codigo operação 7A
 															A <= A - 1;
 															ESTADO <= EXECUTA;		
