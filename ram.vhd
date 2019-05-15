@@ -26,14 +26,26 @@ begin
 process(clk, rst)
 begin
 	if rst = '1' then
-		ram8x8(0) <= "10100111"; -- A7 LDA [#7] 
-		ram8x8(1) <= "00000111"; -- Endereco 7 	
-		ram8x8(2) <= "01001100"; -- 4C - Próxima instrução após valor 5
-		ram8x8(3) <= "01001100"; -- 4C (Incremento A)
-		ram8x8(4) <= "01001100"; -- 4C (Incremento A)	
-		ram8x8(5) <= "01001100"; -- 4C (Incremento A)
-		ram8x8(6) <= "01001100"; -- 4C (Incremento A)
-		ram8x8(7) <= "00000101"; -- Valor a ser inserido no registrador
+--	   TESTE JMP SE 0
+--		ram8x8(0) <= "00111011"; -- JMP SE A = 0
+--		ram8x8(1) <= "00000011"; -- ENDEREÇO 3
+--		ram8x8(2) <= "00000000"; 
+--		ram8x8(3) <= "10100110"; -- LOAD A DIRETO
+--		ram8x8(4) <= "00000001";	
+--		ram8x8(5) <= "00111011"; -- JMP SE 0
+--		ram8x8(6) <= "00000010"; 
+--		ram8x8(7) <= "01001100"; -- INC A
+
+-- TESTE JMP INCONDICIONAL E DEC
+	--   TESTE JMP SE 0
+		ram8x8(0) <= "01001100"; -- INC A
+		ram8x8(1) <= "00111010"; -- JMP INCONDICIONAL ENDEREÇO 3
+		ram8x8(2) <= "00000101"; 
+		ram8x8(3) <= "10100110"; 
+		ram8x8(4) <= "00000001";	
+		ram8x8(5) <= "01111010"; -- DEC A
+		ram8x8(6) <= "00111011"; -- JMP SE A = 0
+		ram8x8(7) <= "00000000"; -- ENDEREÇO = 0
 		
 	elsif clk'event and clk = '1' then
 		-- Operação de escrita

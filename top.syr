@@ -4,13 +4,13 @@ Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.11 secs
+Total CPU time to Xst completion: 0.10 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.11 secs
+Total CPU time to Xst completion: 0.10 secs
  
 --> Reading design: top.prj
 
@@ -106,16 +106,16 @@ INFO:Xst - Part-select index evaluated to out of bound value may lead to incorre
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
-Parsing VHDL file "C:\Users\Laboratorios\Desktop\hc05\hc05\ram.vhd" into library work
+Parsing VHDL file "C:\Users\Laboratorios\Desktop\HC05-Processor\ram.vhd" into library work
 Parsing entity <ram>.
 Parsing architecture <Behavioral> of entity <ram>.
-Parsing VHDL file "C:\Users\Laboratorios\Desktop\hc05\hc05\hc05.vhd" into library work
+Parsing VHDL file "C:\Users\Laboratorios\Desktop\HC05-Processor\hc05.vhd" into library work
 Parsing entity <hc05>.
 Parsing architecture <Behavioral> of entity <hc05>.
-Parsing VHDL file "C:\Users\Laboratorios\Desktop\hc05\hc05\divclk.vhd" into library work
+Parsing VHDL file "C:\Users\Laboratorios\Desktop\HC05-Processor\divclk.vhd" into library work
 Parsing entity <divclk>.
 Parsing architecture <Behavioral> of entity <divclk>.
-Parsing VHDL file "C:\Users\Laboratorios\Desktop\hc05\hc05\top.vhd" into library work
+Parsing VHDL file "C:\Users\Laboratorios\Desktop\HC05-Processor\top.vhd" into library work
 Parsing entity <top>.
 Parsing architecture <Behavioral> of entity <top>.
 
@@ -136,13 +136,13 @@ Elaborating entity <hc05> (architecture <Behavioral>) from library <work>.
 =========================================================================
 
 Synthesizing Unit <top>.
-    Related source file is "c:/users/laboratorios/desktop/hc05/hc05/top.vhd".
+    Related source file is "c:/users/laboratorios/desktop/hc05-processor/top.vhd".
     Summary:
 	no macro.
 Unit <top> synthesized.
 
 Synthesizing Unit <divclk>.
-    Related source file is "c:/users/laboratorios/desktop/hc05/hc05/divclk.vhd".
+    Related source file is "c:/users/laboratorios/desktop/hc05-processor/divclk.vhd".
     Found 27-bit register for signal <cont>.
     Found 1-bit register for signal <clkdiv>.
     Found 27-bit adder for signal <cont[26]_GND_4_o_add_0_OUT> created at line 26.
@@ -155,7 +155,7 @@ Synthesizing Unit <divclk>.
 Unit <divclk> synthesized.
 
 Synthesizing Unit <ram>.
-    Related source file is "c:/users/laboratorios/desktop/hc05/hc05/ram.vhd".
+    Related source file is "c:/users/laboratorios/desktop/hc05-processor/ram.vhd".
     Found 8-bit register for signal <ram8x8<1>>.
     Found 8-bit register for signal <ram8x8<2>>.
     Found 8-bit register for signal <ram8x8<3>>.
@@ -413,14 +413,14 @@ Synthesizing Unit <ram>.
     Found 8-bit register for signal <ram8x8<254>>.
     Found 8-bit register for signal <ram8x8<255>>.
 INFO:Xst:3019 - HDL ADVISOR - 2048 flip-flops were inferred for signal <ram8x8>. You may be trying to describe a RAM in a way that is incompatible with block and distributed RAM resources available on Xilinx devices, or with a specific template that is not supported. Please review the Xilinx resources documentation and the XST user manual for coding guidelines. Taking advantage of RAM resources will lead to improved device usage and reduced synthesis time.
-    Found 8-bit 256-to-1 multiplexer for signal <dout> created at line 46.
+    Found 8-bit 256-to-1 multiplexer for signal <dout> created at line 58.
     Summary:
 	inferred 2048 D-type flip-flop(s).
 	inferred   1 Multiplexer(s).
 Unit <ram> synthesized.
 
 Synthesizing Unit <hc05>.
-    Related source file is "c:/users/laboratorios/desktop/hc05/hc05/hc05.vhd".
+    Related source file is "c:/users/laboratorios/desktop/hc05-processor/hc05.vhd".
 WARNING:Xst:653 - Signal <din> is used but never assigned. This sourceless signal will be automatically connected to value GND.
     Found 8-bit register for signal <PC>.
     Found 8-bit register for signal <A>.
@@ -432,8 +432,8 @@ WARNING:Xst:653 - Signal <din> is used but never assigned. This sourceless signa
     Found finite state machine <FSM_0> for signal <ESTADO>.
     -----------------------------------------------------------------------
     | States             | 5                                              |
-    | Transitions        | 12                                             |
-    | Inputs             | 6                                              |
+    | Transitions        | 20                                             |
+    | Inputs             | 12                                             |
     | Outputs            | 3                                              |
     | Clock              | clk (rising_edge)                              |
     | Reset              | rst (positive)                                 |
@@ -444,13 +444,14 @@ WARNING:Xst:653 - Signal <din> is used but never assigned. This sourceless signa
     -----------------------------------------------------------------------
     Found 8-bit adder for signal <A[7]_GND_10_o_add_2_OUT> created at line 72.
     Found 2-bit adder for signal <FASE[1]_GND_10_o_add_5_OUT> created at line 79.
-    Found 8-bit adder for signal <REGAUX[7]_GND_10_o_add_19_OUT> created at line 98.
-    Found 8-bit adder for signal <PC[7]_GND_10_o_add_42_OUT> created at line 106.
-    Found 8-bit 4-to-1 multiplexer for signal <PC[7]_PC[7]_mux_22_OUT> created at line 87.
+    Found 8-bit adder for signal <PC[7]_GND_10_o_add_68_OUT> created at line 135.
+    Found 8-bit subtractor for signal <GND_10_o_GND_10_o_sub_37_OUT<7:0>> created at line 108.
+    Found 8-bit subtractor for signal <GND_10_o_GND_10_o_sub_56_OUT<7:0>> created at line 128.
+    Found 8-bit 4-to-1 multiplexer for signal <PC[7]_PC[7]_mux_21_OUT> created at line 87.
     Summary:
-	inferred   4 Adder/Subtractor(s).
+	inferred   5 Adder/Subtractor(s).
 	inferred  35 D-type flip-flop(s).
-	inferred  13 Multiplexer(s).
+	inferred  12 Multiplexer(s).
 	inferred   1 Finite State Machine(s).
 Unit <hc05> synthesized.
 
@@ -458,10 +459,12 @@ Unit <hc05> synthesized.
 HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 5
+# Adders/Subtractors                                   : 6
  2-bit adder                                           : 1
  27-bit adder                                          : 1
- 8-bit adder                                           : 3
+ 8-bit adder                                           : 2
+ 8-bit addsub                                          : 1
+ 8-bit subtractor                                      : 1
 # Registers                                            : 264
  1-bit register                                        : 2
  2-bit register                                        : 1
@@ -469,11 +472,12 @@ Macro Statistics
  8-bit register                                        : 260
 # Comparators                                          : 1
  27-bit comparator greater                             : 1
-# Multiplexers                                         : 15
- 2-bit 2-to-1 multiplexer                              : 3
+# Multiplexers                                         : 14
+ 2-bit 2-to-1 multiplexer                              : 5
  27-bit 2-to-1 multiplexer                             : 1
- 8-bit 2-to-1 multiplexer                              : 10
+ 8-bit 2-to-1 multiplexer                              : 6
  8-bit 256-to-1 multiplexer                            : 1
+ 8-bit 4-to-1 multiplexer                              : 1
 # FSMs                                                 : 1
 
 =========================================================================
@@ -1828,68 +1832,68 @@ WARNING:Xst:1710 - FF/Latch <ram8x8_12_2> (without init value) has a constant va
 WARNING:Xst:1710 - FF/Latch <ram8x8_12_1> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <ram8x8_12_0> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <ram8x8_4_7> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <ram8x8_4_6> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ram8x8_4_6> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <ram8x8_4_5> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <ram8x8_4_4> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <ram8x8_4_3> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <ram8x8_4_2> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ram8x8_4_3> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ram8x8_4_2> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <ram8x8_4_1> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <ram8x8_4_0> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ram8x8_4_0> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <ram8x8_2_7> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <ram8x8_2_6> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ram8x8_2_6> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <ram8x8_2_5> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <ram8x8_2_4> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <ram8x8_2_3> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ram8x8_2_3> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <ram8x8_2_2> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <ram8x8_2_1> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <ram8x8_2_0> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ram8x8_2_0> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <ram8x8_1_7> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <ram8x8_1_6> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <ram8x8_1_5> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <ram8x8_1_4> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <ram8x8_1_3> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <ram8x8_1_2> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ram8x8_1_5> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ram8x8_1_4> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ram8x8_1_3> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ram8x8_1_2> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <ram8x8_1_1> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <ram8x8_1_0> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <ram8x8_3_7> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <ram8x8_3_6> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <ram8x8_3_5> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ram8x8_1_0> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ram8x8_3_7> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ram8x8_3_6> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ram8x8_3_5> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <ram8x8_3_4> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <ram8x8_3_3> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ram8x8_3_3> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <ram8x8_3_2> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <ram8x8_3_1> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ram8x8_3_1> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <ram8x8_3_0> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <ram8x8_0_7> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <ram8x8_0_6> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <ram8x8_0_5> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ram8x8_0_7> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ram8x8_0_6> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ram8x8_0_5> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <ram8x8_0_4> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <ram8x8_0_3> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ram8x8_0_3> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <ram8x8_0_2> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <ram8x8_0_1> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <ram8x8_0_0> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ram8x8_0_1> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ram8x8_0_0> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <ram8x8_7_7> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <ram8x8_7_6> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <ram8x8_7_5> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <ram8x8_7_4> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <ram8x8_7_3> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <ram8x8_7_2> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ram8x8_7_2> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <ram8x8_7_1> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <ram8x8_7_0> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ram8x8_7_0> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <ram8x8_6_7> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <ram8x8_6_6> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <ram8x8_6_5> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <ram8x8_6_4> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ram8x8_6_6> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ram8x8_6_5> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ram8x8_6_4> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <ram8x8_6_3> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <ram8x8_6_2> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <ram8x8_6_1> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <ram8x8_6_0> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ram8x8_6_2> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ram8x8_6_1> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ram8x8_6_0> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <ram8x8_5_7> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <ram8x8_5_6> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <ram8x8_5_5> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <ram8x8_5_4> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ram8x8_5_5> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ram8x8_5_4> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <ram8x8_5_3> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <ram8x8_5_2> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <ram8x8_5_1> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ram8x8_5_2> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ram8x8_5_1> (without init value) has a constant value of 1 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <ram8x8_5_0> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <ram8x8_27_7> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <ram8x8_27_6> (without init value) has a constant value of 0 in block <ram1>. This FF/Latch will be trimmed during the optimization process.
@@ -2541,19 +2545,22 @@ Unit <divclk> synthesized (advanced).
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 4
+# Adders/Subtractors                                   : 5
  2-bit adder                                           : 1
- 8-bit adder                                           : 3
+ 8-bit adder                                           : 2
+ 8-bit addsub                                          : 1
+ 8-bit subtractor                                      : 1
 # Counters                                             : 1
  27-bit up counter                                     : 1
 # Registers                                            : 2084
  Flip-Flops                                            : 2084
 # Comparators                                          : 1
  27-bit comparator greater                             : 1
-# Multiplexers                                         : 14
- 2-bit 2-to-1 multiplexer                              : 3
- 8-bit 2-to-1 multiplexer                              : 10
+# Multiplexers                                         : 13
+ 2-bit 2-to-1 multiplexer                              : 5
+ 8-bit 2-to-1 multiplexer                              : 6
  8-bit 256-to-1 multiplexer                            : 1
+ 8-bit 4-to-1 multiplexer                              : 1
 # FSMs                                                 : 1
 
 =========================================================================
@@ -4563,80 +4570,84 @@ WARNING:Xst:1710 - FF/Latch <ram1/ram8x8_173_0> (without init value) has a const
 WARNING:Xst:1710 - FF/Latch <ram1/ram8x8_172_7> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <ram1/ram8x8_172_6> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <ram1/ram8x8_172_5> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_2_0> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_2_0> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_2_1> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_2_2> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_2_3> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_2_3> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_2_4> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_2_5> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_2_6> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_2_6> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_2_7> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_4_0> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_4_0> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_4_1> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_4_2> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_4_3> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_4_2> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_4_3> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_4_4> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_4_5> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_4_6> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_4_6> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_4_7> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_1_7> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_1_6> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_1_5> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_1_4> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_1_3> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_1_2> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_1_5> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_1_4> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_1_3> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_1_2> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_1_1> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_1_0> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_3_7> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_3_6> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_3_5> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_1_0> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_3_7> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_3_6> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_3_5> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_3_4> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_3_3> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_3_3> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_3_2> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_3_1> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_3_1> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_3_0> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_0_7> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_0_6> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_0_5> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_0_7> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_0_6> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_0_5> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_0_4> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_0_3> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_0_3> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_0_2> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_0_1> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_0_0> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_0_1> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_0_0> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_7_7> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_7_6> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_7_5> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_7_4> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_7_3> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_7_2> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_7_2> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_7_1> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_7_0> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_5_0> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_5_1> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_5_2> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_5_3> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_5_4> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_5_5> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_5_6> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_5_7> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_6_0> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_6_1> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_6_2> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_6_3> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_6_4> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_6_5> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_6_6> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_7_0> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_6_7> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <hc051/OPCODE_4> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-INFO:Xst:2261 - The FF/Latch <hc051/OPCODE_6> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <hc051/OPCODE_3> 
-INFO:Xst:2261 - The FF/Latch <hc051/OPCODE_7> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <hc051/OPCODE_5> 
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_6_6> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_6_5> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_6_4> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_6_3> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_6_2> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_6_1> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_6_0> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_5_7> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_5_6> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_5_5> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_5_4> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_5_3> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_5_2> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_5_1> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ram1/ram8x8_5_0> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <hc051/REGAUX_7> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <hc051/REGAUX_6> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <hc051/REGAUX_5> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <hc051/REGAUX_4> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <hc051/REGAUX_3> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <hc051/REGAUX_2> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <hc051/REGAUX_1> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <hc051/REGAUX_0> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <hc051/FASE_1> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <hc051/OPCODE_5> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <hc051/OPCODE_1> 
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block top, actual ratio is 2.
-FlipFlop hc051/FASE_0 has been replicated 1 time(s)
-FlipFlop hc051/FASE_1 has been replicated 1 time(s)
-FlipFlop hc051/PC_3 has been replicated 1 time(s)
+Found area constraint ratio of 100 (+ 5) on block top, actual ratio is 3.
 
 Final Macro Processing ...
 
@@ -4644,8 +4655,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 65
- Flip-Flops                                            : 65
+# Registers                                            : 55
+ Flip-Flops                                            : 55
 
 =========================================================================
 
@@ -4668,24 +4679,24 @@ Top Level Output File Name         : top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 253
+# BELS                             : 277
 #      GND                         : 1
-#      INV                         : 3
+#      INV                         : 4
 #      LUT1                        : 27
-#      LUT2                        : 10
-#      LUT3                        : 11
-#      LUT4                        : 10
+#      LUT2                        : 11
+#      LUT3                        : 18
+#      LUT4                        : 14
 #      LUT5                        : 23
-#      LUT6                        : 89
-#      MUXCY                       : 33
-#      MUXF7                       : 10
-#      MUXF8                       : 8
+#      LUT6                        : 98
+#      MUXCY                       : 32
+#      MUXF7                       : 12
+#      MUXF8                       : 9
 #      VCC                         : 1
 #      XORCY                       : 27
-# FlipFlops/Latches                : 65
+# FlipFlops/Latches                : 55
 #      FDC                         : 30
-#      FDCE                        : 21
-#      FDE                         : 14
+#      FDCE                        : 17
+#      FDE                         : 8
 # Clock Buffers                    : 2
 #      BUFG                        : 1
 #      BUFGP                       : 1
@@ -4700,16 +4711,16 @@ Selected Device : 6slx16csg324-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:              65  out of  18224     0%  
- Number of Slice LUTs:                  173  out of   9112     1%  
-    Number used as Logic:               173  out of   9112     1%  
+ Number of Slice Registers:              55  out of  18224     0%  
+ Number of Slice LUTs:                  195  out of   9112     2%  
+    Number used as Logic:               195  out of   9112     2%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    190
-   Number with an unused Flip Flop:     125  out of    190    65%  
-   Number with an unused LUT:            17  out of    190     8%  
-   Number of fully used LUT-FF pairs:    48  out of    190    25%  
-   Number of unique control sets:         7
+ Number of LUT Flip Flop pairs used:    202
+   Number with an unused Flip Flop:     147  out of    202    72%  
+   Number with an unused LUT:             7  out of    202     3%  
+   Number of fully used LUT-FF pairs:    48  out of    202    23%  
+   Number of unique control sets:         6
 
 IO Utilization: 
  Number of IOs:                          10
@@ -4740,7 +4751,7 @@ Clock Information:
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
 clk                                | BUFGP                  | 28    |
-divclk1/clkdiv                     | BUFG                   | 37    |
+divclk1/clkdiv                     | BUFG                   | 27    |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -4751,9 +4762,9 @@ Timing Summary:
 ---------------
 Speed Grade: -3
 
-   Minimum period: 5.156ns (Maximum Frequency: 193.939MHz)
-   Minimum input arrival time before clock: 4.467ns
-   Maximum output required time after clock: 3.820ns
+   Minimum period: 5.909ns (Maximum Frequency: 169.222MHz)
+   Minimum input arrival time before clock: 4.300ns
+   Maximum output required time after clock: 3.950ns
    Maximum combinational path delay: No path found
 
 Timing Details:
@@ -4762,61 +4773,63 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 3.535ns (frequency: 282.855MHz)
+  Clock period: 3.585ns (frequency: 278.921MHz)
   Total number of paths / destination ports: 1147 / 28
 -------------------------------------------------------------------------
-Delay:               3.535ns (Levels of Logic = 2)
-  Source:            divclk1/cont_21 (FF)
-  Destination:       divclk1/cont_0 (FF)
+Delay:               3.585ns (Levels of Logic = 7)
+  Source:            divclk1/cont_6 (FF)
+  Destination:       divclk1/clkdiv (FF)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: divclk1/cont_21 to divclk1/cont_0
+  Data Path: divclk1/cont_6 to divclk1/clkdiv
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDC:C->Q              3   0.447   1.015  divclk1/cont_21 (divclk1/cont_21)
-     LUT6:I0->O           27   0.203   1.565  divclk1/PWR_4_o_cont[26]_equal_3_o<26>1 (divclk1/PWR_4_o_cont[26]_equal_3_o<26>)
-     LUT6:I1->O            1   0.203   0.000  divclk1/Mcount_cont_eqn_01 (divclk1/Mcount_cont_eqn_0)
-     FDC:D                     0.102          divclk1/cont_0
+     FDC:C->Q              4   0.447   1.028  divclk1/cont_6 (divclk1/cont_6)
+     LUT5:I0->O            1   0.203   0.000  divclk1/Mcompar_cont[26]_INV_1_o_lut<1> (divclk1/Mcompar_cont[26]_INV_1_o_lut<1>)
+     MUXCY:S->O            1   0.172   0.000  divclk1/Mcompar_cont[26]_INV_1_o_cy<1> (divclk1/Mcompar_cont[26]_INV_1_o_cy<1>)
+     MUXCY:CI->O           1   0.019   0.000  divclk1/Mcompar_cont[26]_INV_1_o_cy<2> (divclk1/Mcompar_cont[26]_INV_1_o_cy<2>)
+     MUXCY:CI->O           1   0.019   0.000  divclk1/Mcompar_cont[26]_INV_1_o_cy<3> (divclk1/Mcompar_cont[26]_INV_1_o_cy<3>)
+     MUXCY:CI->O           1   0.019   0.000  divclk1/Mcompar_cont[26]_INV_1_o_cy<4> (divclk1/Mcompar_cont[26]_INV_1_o_cy<4>)
+     MUXCY:CI->O           1   0.213   0.579  divclk1/Mcompar_cont[26]_INV_1_o_cy<5> (divclk1/Mcompar_cont[26]_INV_1_o_cy<5>)
+     INV:I->O              1   0.206   0.579  divclk1/Mcompar_cont[26]_INV_1_o_cy<5>_inv1_INV_0 (divclk1/cont[26]_INV_1_o)
+     FDE:D                     0.102          divclk1/clkdiv
     ----------------------------------------
-    Total                      3.535ns (0.955ns logic, 2.580ns route)
-                                       (27.0% logic, 73.0% route)
+    Total                      3.585ns (1.400ns logic, 2.185ns route)
+                                       (39.0% logic, 61.0% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'divclk1/clkdiv'
-  Clock period: 5.156ns (frequency: 193.939MHz)
-  Total number of paths / destination ports: 1593 / 71
+  Clock period: 5.909ns (frequency: 169.222MHz)
+  Total number of paths / destination ports: 1822 / 51
 -------------------------------------------------------------------------
-Delay:               5.156ns (Levels of Logic = 8)
-  Source:            hc051/PC_1 (FF)
+Delay:               5.909ns (Levels of Logic = 5)
+  Source:            hc051/OPCODE_4 (FF)
   Destination:       hc051/PC_7 (FF)
   Source Clock:      divclk1/clkdiv rising
   Destination Clock: divclk1/clkdiv rising
 
-  Data Path: hc051/PC_1 to hc051/PC_7
+  Data Path: hc051/OPCODE_4 to hc051/PC_7
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDCE:C->Q            18   0.447   1.154  hc051/PC_1 (hc051/PC_1)
-     LUT2:I0->O            2   0.203   0.000  hc051/Mmux_PC[7]_PC[7]_mux_22_OUT3_A3_SW0 (ram1/Mmux_dout_1377)
-     MUXF7:I1->O           1   0.140   0.000  ram1/Mmux_dout_12_f7_36 (ram1/Mmux_dout_12_f737)
-     MUXF8:I0->O           2   0.144   0.617  ram1/Mmux_dout_10_f8_22 (ram1/Mmux_dout_10_f823)
-     LUT3:I2->O            1   0.205   0.000  ram1/Mmux_dout_4_f7_21 (ram1/Mmux_dout_4_f7_2)
-     MUXF7:I0->O           1   0.131   0.000  ram1/Mmux_dout_4_f7_2 (ram1/Mmux_dout_4_f73)
-     MUXF8:I0->O           3   0.144   0.651  ram1/Mmux_dout_2_f8_2 (sdout<3>)
-     LUT6:I5->O            1   0.205   0.808  hc051/Mmux_PC[7]_PC[7]_mux_22_OUT3_A41 (hc051/Mmux_PC[7]_PC[7]_mux_22_OUT3_rs_lut<3>)
-     LUT6:I3->O            1   0.205   0.000  hc051/Mmux_ESTADO[2]_PC[7]_wide_mux_43_OUT83 (hc051/ESTADO[2]_PC[7]_wide_mux_43_OUT<7>)
+     FDE:C->Q              7   0.447   1.118  hc051/OPCODE_4 (hc051/OPCODE_4)
+     LUT5:I0->O           14   0.203   1.205  hc051/GND_10_o_OPCODE[7]_equal_60_o<7>11 (hc051/GND_10_o_OPCODE[7]_equal_60_o<7>1)
+     LUT6:I2->O           10   0.203   0.857  hc051/_n02381 (hc051/_n0238)
+     LUT6:I5->O            1   0.205   0.580  hc051/Mmux_ESTADO[2]_PC[7]_wide_mux_69_OUT84 (hc051/Mmux_ESTADO[2]_PC[7]_wide_mux_69_OUT83)
+     LUT6:I5->O            1   0.205   0.580  hc051/Mmux_ESTADO[2]_PC[7]_wide_mux_69_OUT85_SW1 (N14)
+     LUT6:I5->O            1   0.205   0.000  hc051/Mmux_ESTADO[2]_PC[7]_wide_mux_69_OUT86 (hc051/ESTADO[2]_PC[7]_wide_mux_69_OUT<7>)
      FDCE:D                    0.102          hc051/PC_7
     ----------------------------------------
-    Total                      5.156ns (1.926ns logic, 3.230ns route)
-                                       (37.4% logic, 62.6% route)
+    Total                      5.909ns (1.570ns logic, 4.339ns route)
+                                       (26.6% logic, 73.4% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
   Total number of paths / destination ports: 28 / 28
 -------------------------------------------------------------------------
-Offset:              3.902ns (Levels of Logic = 2)
+Offset:              3.862ns (Levels of Logic = 2)
   Source:            rst (PAD)
   Destination:       divclk1/clkdiv (FF)
   Destination Clock: clk rising
@@ -4825,38 +4838,38 @@ Offset:              3.902ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            54   1.222   1.573  rst_IBUF (rst_IBUF)
+     IBUF:I->O            49   1.222   1.533  rst_IBUF (rst_IBUF)
      INV:I->O              1   0.206   0.579  divclk1/rst_inv1_INV_0 (divclk1/rst_inv)
      FDE:CE                    0.322          divclk1/clkdiv
     ----------------------------------------
-    Total                      3.902ns (1.750ns logic, 2.152ns route)
-                                       (44.8% logic, 55.2% route)
+    Total                      3.862ns (1.750ns logic, 2.112ns route)
+                                       (45.3% logic, 54.7% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'divclk1/clkdiv'
-  Total number of paths / destination ports: 37 / 37
+  Total number of paths / destination ports: 27 / 27
 -------------------------------------------------------------------------
-Offset:              4.467ns (Levels of Logic = 2)
+Offset:              4.300ns (Levels of Logic = 2)
   Source:            rst (PAD)
-  Destination:       hc051/REGAUX_7 (FF)
+  Destination:       hc051/OPCODE_7 (FF)
   Destination Clock: divclk1/clkdiv rising
 
-  Data Path: rst to hc051/REGAUX_7
+  Data Path: rst to hc051/OPCODE_7
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            54   1.222   1.918  rst_IBUF (rst_IBUF)
-     LUT5:I0->O            8   0.203   0.802  hc051/_n0199_inv2 (hc051/_n0199_inv)
-     FDE:CE                    0.322          hc051/REGAUX_0
+     IBUF:I->O            49   1.222   1.781  rst_IBUF (rst_IBUF)
+     LUT4:I0->O            7   0.203   0.773  hc051/_n0206_inv1 (hc051/_n0206_inv)
+     FDE:CE                    0.322          hc051/OPCODE_0
     ----------------------------------------
-    Total                      4.467ns (1.747ns logic, 2.720ns route)
-                                       (39.1% logic, 60.9% route)
+    Total                      4.300ns (1.747ns logic, 2.553ns route)
+                                       (40.6% logic, 59.4% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'divclk1/clkdiv'
   Total number of paths / destination ports: 8 / 8
 -------------------------------------------------------------------------
-Offset:              3.820ns (Levels of Logic = 1)
+Offset:              3.950ns (Levels of Logic = 1)
   Source:            hc051/A_0 (FF)
   Destination:       led<0> (PAD)
   Source Clock:      divclk1/clkdiv rising
@@ -4865,11 +4878,11 @@ Offset:              3.820ns (Levels of Logic = 1)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDCE:C->Q             8   0.447   0.802  hc051/A_0 (hc051/A_0)
+     FDCE:C->Q            13   0.447   0.932  hc051/A_0 (hc051/A_0)
      OBUF:I->O                 2.571          led_0_OBUF (led<0>)
     ----------------------------------------
-    Total                      3.820ns (3.018ns logic, 0.802ns route)
-                                       (79.0% logic, 21.0% route)
+    Total                      3.950ns (3.018ns logic, 0.932ns route)
+                                       (76.4% logic, 23.6% route)
 
 =========================================================================
 
@@ -4881,7 +4894,7 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    3.535|         |         |         |
+clk            |    3.585|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock divclk1/clkdiv
@@ -4889,20 +4902,20 @@ Clock to Setup on destination clock divclk1/clkdiv
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-divclk1/clkdiv |    5.156|         |         |         |
+divclk1/clkdiv |    5.909|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 42.00 secs
-Total CPU time to Xst completion: 42.23 secs
+Total REAL time to Xst completion: 44.00 secs
+Total CPU time to Xst completion: 43.83 secs
  
 --> 
 
-Total memory usage is 300012 kilobytes
+Total memory usage is 300652 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings : 4100 (   0 filtered)
-Number of infos    :    5 (   0 filtered)
+Number of warnings : 4108 (   0 filtered)
+Number of infos    :    4 (   0 filtered)
 

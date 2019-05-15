@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2019-05-08T20:45:00</DateModified>
+  <DateModified>2019-05-14T20:40:17</DateModified>
   <ModuleName>top</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
-  <SavedFilePath>C:/Users/Laboratorios/Desktop/hc05/hc05/iseconfig/top.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Users/Laboratorios/Desktop/hc05/hc05\</ImplementationReportsDirectory>
+  <SavedFilePath>C:/Users/Laboratorios/Desktop/HC05-Processor/iseconfig/top.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>C:/Users/Laboratorios/Desktop/HC05-Processor\</ImplementationReportsDirectory>
   <DateInitialized>2019-04-24T20:43:39</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

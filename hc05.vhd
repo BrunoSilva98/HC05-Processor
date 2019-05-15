@@ -86,7 +86,7 @@ begin
 									when "10100111" => -- (LDA [#] - Modo direto - Contém endereço do dado) Codigo Operação A7
 															if FASE = "00" then
 																PC <= PC + 1;
-																FASE <= FASE +1;
+																FASE <= FASE + 1;
 															
 															elsif FASE = "01" then
 																REGAUX <= PC;
@@ -98,6 +98,35 @@ begin
 																PC <= REGAUX;
 																ESTADO <= EXECUTA;
 															end if;
+															
+									when "00111010" => -- Jump incondicional - Codigo Operação 3A
+															if FASE  = "00" then
+																PC <= PC + 1;
+																FASE <= FASE + 1;
+																														
+															elsif FASE = "01" then
+																PC <= dout - 1;
+																ESTADO <= EXECUTA;
+															end if;	
+
+									when "00111011" => -- JMP Condicional zero - Codigo Operação 3B
+															if FASE = "00" then 
+																PC <= PC + 1;
+																
+																if A = "00000000" then 
+																	FASE <= FASE + 1;												
+																else
+																	ESTADO <= EXECUTA;
+																end if;
+																
+															elsif FASE = "01" then
+																PC <= dout - 1 ;
+																ESTADO <= EXECUTA;
+															end if;
+															
+									when "01111010" => -- DEC A - Codigo operação 7A
+															A <= A - 1;
+															ESTADO <= EXECUTA;		
 									
 									when others => null;
 								end case;
