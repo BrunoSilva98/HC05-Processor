@@ -8,9 +8,13 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity top is
-    Port ( clk : in  STD_LOGIC;
-           rst : in  STD_LOGIC;
-           led : out  STD_LOGIC_VECTOR (7 downto 0));
+    Port ( clk   : in  STD_LOGIC;
+           rst   : in  STD_LOGIC;
+			  enter : in STD_LOGIC; -- SW7
+			  dado  : in STD_LOGIC_VECTOR (3 downto 0); --SW4:1
+			  an    : out  STD_LOGIC_VECTOR (3 downto 0);
+			  seg   : out  STD_LOGIC_VECTOR (7 downto 0);
+           led   : out  STD_LOGIC_VECTOR (7 downto 0));
 end top;
 
 architecture Behavioral of top is
@@ -34,7 +38,11 @@ component hc05 is
            din : out  STD_LOGIC_VECTOR (7 downto 0);
            addr : out  STD_LOGIC_VECTOR (7 downto 0);
            rw : out  STD_LOGIC;
-			  led	 : out  STD_LOGIC_VECTOR (7 downto 0)
+			  led	 : out  STD_LOGIC_VECTOR (7 downto 0);
+			  enter : in STD_LOGIC; -- SW7
+			  dado  : in STD_LOGIC_VECTOR (3 downto 0); --SW4:1
+			  an : out  STD_LOGIC_VECTOR (3 downto 0);
+			  seg : out  STD_LOGIC_VECTOR (7 downto 0)
 			 );
 end component;
 
@@ -56,7 +64,7 @@ begin
 --Instancias RAM, HC05 e DIVCLK
 divclk1 : divclk  port map (clk, rst, sclkdiv); 
 ram1    : ram     port map (sclkdiv, rst, saddr, sdin, srw, sdout);
-hc051   : hc05    port map (sclkdiv, rst, sdout, sdin, saddr, srw, led);
+hc051   : hc05    port map (sclkdiv, rst, sdout, sdin, saddr, srw, led, enter, dado, an, seg);
 
 
 end Behavioral;
