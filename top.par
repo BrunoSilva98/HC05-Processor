@@ -1,7 +1,7 @@
 Release 13.4 par O.87xd (nt64)
 Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
 
-LAB0107::  Wed May 15 22:06:32 2019
+LAB0108::  Wed May 29 22:14:16 2019
 
 par -w -intstyle ise -ol high -mt off top_map.ncd top.ncd top.pcf 
 
@@ -39,30 +39,30 @@ Device speed data version:  "PRODUCTION 1.21 2012-01-07".
 Device Utilization Summary:
 
 Slice Logic Utilization:
-  Number of Slice Registers:                    55 out of  18,224    1%
-    Number used as Flip Flops:                  55
+  Number of Slice Registers:                    57 out of  18,224    1%
+    Number used as Flip Flops:                  57
     Number used as Latches:                      0
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                        162 out of   9,112    1%
-    Number used as logic:                      161 out of   9,112    1%
-      Number using O6 output only:             114
-      Number using O5 output only:              25
-      Number using O5 and O6:                   22
+  Number of Slice LUTs:                        179 out of   9,112    1%
+    Number used as logic:                      177 out of   9,112    1%
+      Number using O6 output only:             135
+      Number using O5 output only:              22
+      Number using O5 and O6:                   20
       Number used as ROM:                        0
     Number used as Memory:                       0 out of   2,176    0%
-    Number used exclusively as route-thrus:      1
+    Number used exclusively as route-thrus:      2
       Number with same-slice register load:      0
       Number with same-slice carry load:         1
-      Number with other load:                    0
+      Number with other load:                    1
 
 Slice Logic Distribution:
-  Number of occupied Slices:                    51 out of   2,278    2%
-  Nummber of MUXCYs used:                       36 out of   4,556    1%
-  Number of LUT Flip Flop pairs used:          167
-    Number with an unused Flip Flop:           113 out of     167   67%
-    Number with an unused LUT:                   5 out of     167    2%
-    Number of fully used LUT-FF pairs:          49 out of     167   29%
+  Number of occupied Slices:                    55 out of   2,278    2%
+  Nummber of MUXCYs used:                       32 out of   4,556    1%
+  Number of LUT Flip Flop pairs used:          179
+    Number with an unused Flip Flop:           125 out of     179   69%
+    Number with an unused LUT:                   0 out of     179    0%
+    Number of fully used LUT-FF pairs:          54 out of     179   30%
     Number of slice register sites lost
       to control set restrictions:               0 out of  18,224    0%
 
@@ -111,13 +111,13 @@ Finished initial Timing Analysis.  REAL time: 4 secs
 Starting Router
 
 
-Phase  1  : 810 unrouted;      REAL time: 4 secs 
+Phase  1  : 868 unrouted;      REAL time: 4 secs 
 
-Phase  2  : 737 unrouted;      REAL time: 4 secs 
+Phase  2  : 798 unrouted;      REAL time: 4 secs 
 
-Phase  3  : 155 unrouted;      REAL time: 4 secs 
+Phase  3  : 204 unrouted;      REAL time: 5 secs 
 
-Phase  4  : 155 unrouted; (Par is working to improve performance)     REAL time: 5 secs 
+Phase  4  : 204 unrouted; (Par is working to improve performance)     REAL time: 5 secs 
 
 Updating file: top.ncd with current fully routed design.
 
@@ -153,11 +153,11 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net div | SETUP       |         N/A|     4.706ns|     N/A|           0
-  clk1/clkdiv_BUFG                          | HOLD        |     0.419ns|            |       0|           0
+  Autotimespec constraint for clock net clk | SETUP       |         N/A|     3.327ns|     N/A|           0
+  _BUFGP                                    | HOLD        |     0.816ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net clk | SETUP       |         N/A|     3.320ns|     N/A|           0
-  _BUFGP                                    | HOLD        |     0.737ns|            |       0|           0
+  Autotimespec constraint for clock net div | SETUP       |         N/A|     4.903ns|     N/A|           0
+  clk1/clkdiv_BUFG                          | HOLD        |     0.417ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
 
 
@@ -176,7 +176,7 @@ All signals are completely routed.
 Total REAL time to PAR completion: 6 secs 
 Total CPU time to PAR completion: 6 secs 
 
-Peak Memory Usage:  305 MB
+Peak Memory Usage:  302 MB
 
 Placer: Placement generated during map.
 Routing: Completed - No errors found.
