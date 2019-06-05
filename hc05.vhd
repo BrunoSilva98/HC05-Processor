@@ -52,7 +52,7 @@ SIGNAL CONT_GUESS   : integer range 0 to 16;
 begin
 an   <= "1110";
 addr <= PC;
-led  <= A;
+led  <= pc;
 
 
 
@@ -224,6 +224,14 @@ end case;
 																end if;
 																
 															end if;
+									WHEN "00001111" =>
+															if A = NUMERO_GUESS then
+																A <= "00000000";																													
+															else															
+																A <= "00000001";
+															end if;	
+															ESTADO <= EXECUTA;
+									
 									WHEN "11111111" =>
 															NUMERO_GUESS <= CONT_GUESS;
 															ESTADO <= EXECUTA;
