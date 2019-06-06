@@ -226,7 +226,8 @@ end case;
 															end if;
 									WHEN "00001111" =>
 															if A = NUMERO_GUESS then
-																A <= "00000000";																													
+																A <= "00000000";	
+																din <= "00000001";	
 															else															
 																A <= "00000001";
 															end if;	
