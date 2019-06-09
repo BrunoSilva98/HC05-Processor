@@ -224,10 +224,9 @@ end case;
 																end if;
 																
 															end if;
-									WHEN "00001111" =>
+									WHEN "00001111" => 
 															if A = NUMERO_GUESS then
 																A <= "00000000";	
-																din <= "00000001";	
 															else															
 																A <= "00000001";
 															end if;	
@@ -236,7 +235,23 @@ end case;
 									WHEN "11111111" =>
 															NUMERO_GUESS <= CONT_GUESS;
 															ESTADO <= EXECUTA;
-																
+													
+									WHEN "10101100" => -- Escrever na memória OPCODE AC						
+														if FASE = "00" then
+															PC <= PC + 1;
+															FASE <= FASE + 1;
+														elsif FASE = "01" then
+															REGAUX <= PC;
+															din <= dout;
+															PC <= "11110000";
+															rw <= '1';
+															fase <= FASE + 1;
+														elsif FASE = "10" then
+															rw <= '0';
+															PC <= REGAUX;
+															ESTADO <= EXECUTA;
+														end if;
+															
 									when others => null;
 								end case;
 								

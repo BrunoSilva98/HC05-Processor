@@ -31,7 +31,8 @@ entity vga is
 			  green_out : out STD_LOGIC;
 			  blue_out : out STD_LOGIC;
 			  hs_out : out STD_LOGIC;
-			  vs_out : out STD_LOGIC
+			  vs_out : out STD_LOGIC;
+			  memout : in STD_LOGIC_VECTOR (7 downto 0)
 			);
 end vga;
 
@@ -121,10 +122,9 @@ begin
 			blue_out <= '0';
 		end if;
 	
-	if din = "00000001" then
+	if memout = "00000001" then
 		VerticalA <= VerticalA - "0000010100";
 		VerticalB <= VerticalB - "0000010100";
-		din <= "00000000";
 	end if;
 	
 	if count = 350000 then

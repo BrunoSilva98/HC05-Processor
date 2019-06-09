@@ -14,7 +14,9 @@ entity ram is
            addr : in  STD_LOGIC_VECTOR (7 downto 0);
            din : in  STD_LOGIC_VECTOR (7 downto 0);
            rw : in  STD_LOGIC;
-           dout : out  STD_LOGIC_VECTOR (7 downto 0));
+           dout : out  STD_LOGIC_VECTOR (7 downto 0);
+		   memout : out STD_LOGIC_VECTOR (7 downto 0)
+		 );
 end ram;
 
 architecture Behavioral of ram is
@@ -26,46 +28,22 @@ begin
 process(clk, rst)
 begin
 	if rst = '1' then
---	   TESTE JMP SE 0
---		ram8x8(0) <= "00111011"; -- JMP SE A = 0
---		ram8x8(1) <= "00000011"; -- ENDEREÇO 3
---		ram8x8(2) <= "00000000"; 
---		ram8x8(3) <= "10100110"; -- LOAD A DIRETO
---		ram8x8(4) <= "00000001";	
---		ram8x8(5) <= "00111011"; -- JMP SE 0
---		ram8x8(6) <= "00000010"; 
---		ram8x8(7) <= "01001100"; -- INC A
 
--- TESTE JMP INCONDICIONAL E DEC
---	--   TESTE JMP SE 0
---		ram8x8(0) <= "01001100"; 
---		ram8x8(1) <= "00111010"; 
---		ram8x8(2) <= "00000101"; 
---		ram8x8(3) <= "10100110"; 
---		ram8x8(4) <= "00000001";	
---		ram8x8(5) <= "01111010"; 
---		ram8x8(6) <= "00111011";
---		ram8x8(7) <= "00000000"; 
-
--- TESTE SWA
---		ram8x8(0) <= "10101010"; -- SWA
---		ram8x8(1) <= "01111010"; -- DEC
---		ram8x8(2) <= "00111010"; -- JMP 
---		ram8x8(3) <= "00000001"; -- END 01
---		ram8x8(4) <= "00000001";	
---		ram8x8(5) <= "01111010"; 
---		ram8x8(6) <= "00111011";
---		ram8x8(7) <= "00000000"; 
-
-
--- INSTRUCOES PARA GEAR UM NUMERO NO DISPLAY
-		RAM8X8(0) <= "11111111"; 
-		RAM8X8(1) <= "10101010";
-		RAM8X8(2) <= "00001111";
-		RAM8X8(3) <= "00111011";
-		RAM8X8(4) <= "00000000";
-		RAM8X8(5) <= "00111010";
-		RAM8X8(6) <= "00000001";
+-- INSTRUCOES PARA GERAR UM NUMERO NO DISPLAY
+		RAM8X8(0) <= "11111111"; -- Gera o número
+		RAM8X8(1) <= "10101010"; -- Input do switch
+		RAM8X8(2) <= "00001111"; -- Compara resultado do switch com número correto
+		RAM8X8(3) <= "00111011"; -- Jmp se zero, caso tenha acertado o número
+		RAM8X8(4) <= "00000111"; -- endereço 7
+		RAM8X8(5) <= "00111010"; -- JMP incondicional caso tenha errado o número
+		RAM8X8(6) <= "00000001"; -- Endereço 1
+		RAM8X8(7) <= "10101100"; -- Escrever no endereço 240
+		RAM8X8(8) <= "00000001"; -- Valor 1
+		RAM8X8(9) <= "10101100"; -- Escrever no endereço 240
+		RAM8X8(10) <= "00000000"; -- Valor 0
+		RAM8X8(11) <= "00111011"; -- Jmp incondicional
+		RAM8X8(12) <= "00000000"; -- Endereço 0
+		RAM8X8(240) <= "00000000"; -- Valor verificado no jogo
 		
 	elsif clk'event and clk = '1' then
 		-- Operação de escrita
@@ -76,5 +54,6 @@ begin
 	
 end process;
 dout <= ram8x8(to_integer(unsigned(addr)));
+memout <= RAM8X8(240);
 end Behavioral;
 
