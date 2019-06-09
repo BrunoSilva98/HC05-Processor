@@ -14,7 +14,7 @@ entity divclk is
 end divclk;
 
 architecture Behavioral of divclk is
-signal cont : integer range 0 to 100000001;
+signal cont : integer range 0 to 1000001;
 
 begin
 
@@ -22,15 +22,17 @@ process(clk,rst)
 begin
 	if rst = '1' then
 		cont <= 0;
+		
 	elsif clk'event and clk = '1' then
 		cont <= cont + 1;
+		
 		if cont <= 500000 then
 			clkdiv <= '0';
 		else
 			clkdiv <= '1';
 		end if;
 		
-		if cont= 10000000 then
+		if cont = 1000000 then
 			cont <= 0;
 		end if;
 	end if;

@@ -38,14 +38,15 @@ end vga;
 
 architecture Behavioral of vga is
 
-signal clk50, clk25 			: STD_LOGIC;
-signal horizontal_counter  : STD_LOGIC_VECTOR (9 downto 0);
-signal vertical_counter 	: STD_LOGIC_VECTOR (9 downto 0);
-signal count 		 			: INTEGER range 0 to 400000;
+signal clk50, clk25 		: STD_LOGIC;
+signal horizontal_counter   : STD_LOGIC_VECTOR (9 downto 0);
+signal vertical_counter     : STD_LOGIC_VECTOR (9 downto 0);
 signal VerticalA   			: STD_LOGIC_VECTOR (9 downto 0);
 signal VerticalB   			: STD_LOGIC_VECTOR (9 downto 0);
 signal HorizontalA 			: STD_LOGIC_VECTOR (9 downto 0);
 signal HorizontalB 			: STD_LOGIC_VECTOR (9 downto 0);
+signal count 		 		: INTEGER range 0 to 500001;
+signal countOK				: INTEGER range 0 to 50001;
 
 begin
 
@@ -76,6 +77,8 @@ end process;
 process (clk25,rst)
 
 variable printa: integer range 0 to 10;
+variable ganhou: STD_LOGIC;
+variable perdeu: STD_LOGIC;
 
 begin
 	if rst = '1' then
@@ -84,86 +87,107 @@ begin
 		HorizontalA <= "0101111100";
 		HorizontalB <= "0110010000";
 		count <= 0;
+		countOK <= 0;
+		ganhou <= '0';
+		perdeu <= '0';
 		
 	elsif clk25'event and clk25 = '1' then
-		if (horizontal_counter >= "0001111000" ) -- 120
-		and (horizontal_counter < "1100001100" ) -- 780
-		and (vertical_counter >= "0000101000" ) -- 40
-		and (vertical_counter < "1000001000" ) -- 520
-		then
+		if (horizontal_counter >= "0001111000" ) and (horizontal_counter < "1100001100" ) and -- 120 e 780 
+		   (vertical_counter >= "0000101000" ) and (vertical_counter < "1000001000" ) then -- 40 e 520
 			printa := 1;
-
-		if (horizontal_counter >= HorizontalA) and
-			(horizontal_counter < HorizontalB) and
-			(vertical_counter >= VerticalA) and
-			(vertical_counter < VerticalB) then
+		
+			if VerticalA < "0000100111" then -- Se a borda do quadrado for menor que a parte superior, ganhou
+				ganhou <= '1';
+			end if;
 			
-				printa := 0;
-		end if;
+			if VerticalB > "‭1000000111‬" then -- Se a borda do quadrado for maior que a parte inferior, perdeu
+				perdeu <= '1';
+			end if;
 			
-
-			if printa= 0 then
+			if (horizontal_counter >= HorizontalA) and (horizontal_counter < HorizontalB) and
+			   (vertical_counter >= VerticalA) and (vertical_counter < VerticalB) then
+					printa := 0;
+			end if;
+			
+			if ganhou = '1' then
+				printa := 2;
+			end if;
+			
+			if perdeu = '1' then
+				printa := 3;
+			end if;
+			
+			if printa = 0 then
 				red_out <= '0';
-				green_out <= '1';
-				blue_out <= '0';
-			elsif printa= 1 then
-				red_out <= '1';
 				green_out <= '0';
 				blue_out <= '0';
-			else
+				
+			elsif printa = 1 then
 				red_out <= '0';
 				green_out <= '0';
 				blue_out <= '1';
+				
+			elsif printa = 2 then
+				red_out <= '0';
+				green_out <= '1';
+				blue_out <= '0';
+			
+			elsif printa = 3 then
+				red_out <= '1';
+				green_out <= '0';
+				blue_out <= '0';
 			end if;
-		else
-
-			red_out <= '0';
-			green_out <= '0';
-			blue_out <= '0';
+			
+		end if;
+		
+		if memout = "00000001" and countOK = 50000 then
+			VerticalA <= VerticalA - "0000000111";
+			VerticalB <= VerticalB - "0000000111";
+		
+		elsif memout = "00000001" then
+			countOK <= countOK + 1;
+		end if;
+		
+		if memout = "00000000" and count = 500000 then
+			VerticalA <= VerticalA + "0000000011";
+			VerticalB <= VerticalB + "0000000011";
+			count <= 0;
+		
+		elsif memout = "00000000" then
+			count <= count + 1;
 		end if;
 	
-	if memout = "00000001" then
-		VerticalA <= VerticalA - "0000010100";
-		VerticalB <= VerticalB - "0000010100";
-	end if;
-	
-	if count = 350000 then
-		VerticalA <= VerticalA + "0000000001";
-		VerticalB <= VerticalB + "0000000001";
-		count <= 0;
-	else
-		count <= count + 1;
-	end if;
-	
-	if (VerticalB = 520) then
-		VerticalA <= "0011011100";
-		VerticalB <= "0011110000";
-	end if;
+	--	if (VerticalB = 520) then
+	--		VerticalA <= "0011011100";
+	--		VerticalB <= "0011110000";
+	--	end if;
 		
-	if (horizontal_counter > "0000000000" )
-	and (horizontal_counter < "0001100001" ) -- 96+1
-	then
-		hs_out <= '0';
-	else
-		hs_out <= '1';
-	end if;
-	if (vertical_counter > "0000000000" )
-	and (vertical_counter < "0000000011" ) -- 2+1
-	then
-		vs_out <= '0';
-	else
-		vs_out <= '1';
-	end if;
-	horizontal_counter <= horizontal_counter+"0000000001";
-	if (horizontal_counter="1100100000") then
-		vertical_counter <= vertical_counter+"0000000001";
-		horizontal_counter <= "0000000000";
-	end if;
-	if (vertical_counter="1000001001") then
-		vertical_counter <= "0000000000";
-	end if;
-end if;
+		if (horizontal_counter > "0000000000")	and (horizontal_counter < "0001100001") then --96+1
+			hs_out <= '0';
+		else
+			hs_out <= '1';
+		end if;
+		
+		if (vertical_counter > "0000000000" )and (vertical_counter < "0000000011" ) then -- 2+1
+			vs_out <= '0';
+		else
+			vs_out <= '1';
+		end if;
 
+		horizontal_counter <= horizontal_counter+"0000000001";
+		
+		if (horizontal_counter="1100100000") then
+			vertical_counter <= vertical_counter+"0000000001";
+			horizontal_counter <= "0000000000";
+		end if;
+		
+		if (vertical_counter="1000001001") then
+			vertical_counter <= "0000000000";
+		end if;
+	
+	end if;
+	
 end process;
+
 end Behavioral;
 

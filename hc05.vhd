@@ -236,7 +236,7 @@ end case;
 															NUMERO_GUESS <= CONT_GUESS;
 															ESTADO <= EXECUTA;
 													
-									WHEN "10101100" => -- Escrever na memória OPCODE AC						
+									WHEN "10101100" => -- Escrever na memória (endereco 240) -  OPCODE AC						
 														if FASE = "00" then
 															PC <= PC + 1;
 															FASE <= FASE + 1;
