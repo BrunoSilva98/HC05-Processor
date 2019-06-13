@@ -81,14 +81,15 @@ signal srw   : STD_LOGIC;
 signal sdin  : STD_LOGIC_VECTOR (7 downto 0);
 signal sdout : STD_LOGIC_VECTOR (7 downto 0);
 signal saddr : STD_LOGIC_VECTOR (7 downto 0);
+signal smemout : STD_LOGIC_VECTOR (7 downto 0);
 
 begin
 
 --Instancias RAM, HC05 e DIVCLK
 divclk1 : divclk  port map (clk, rst, sclkdiv); 
-ram1    : ram     port map (sclkdiv, rst, saddr, sdin, srw, sdout, memout);
+ram1    : ram     port map (sclkdiv, rst, saddr, sdin, srw, sdout, smemout);
 hc051   : hc05    port map (sclkdiv, rst, sdout, sdin, saddr, srw, led, enter, dado, an, seg);
-vga1    : vga	  port map (clk, rst, sdin, red_out, green_out, blue_out, hs_out, vs_out, memout);
+vga1    : vga	  port map (clk, rst, sdin, red_out, green_out, blue_out, hs_out, vs_out, smemout);
 
 
 end Behavioral;

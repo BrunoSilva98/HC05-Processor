@@ -88,8 +88,8 @@ begin
 		HorizontalB <= "0110010000";
 		count <= 0;
 		countOK <= 0;
-		ganhou <= '0';
-		perdeu <= '0';
+		ganhou := '0';
+		perdeu := '0';
 		
 	elsif clk25'event and clk25 = '1' then
 		if (horizontal_counter >= "0001111000" ) and (horizontal_counter < "1100001100" ) and -- 120 e 780 
@@ -97,11 +97,11 @@ begin
 			printa := 1;
 		
 			if VerticalA < "0000100111" then -- Se a borda do quadrado for menor que a parte superior, ganhou
-				ganhou <= '1';
+				ganhou := '1';
 			end if;
 			
-			if VerticalB > "‭1000000111‬" then -- Se a borda do quadrado for maior que a parte inferior, perdeu
-				perdeu <= '1';
+			if VerticalB > "1000000111" then -- Se a borda do quadrado for maior que a parte inferior, perdeu
+				perdeu := '1';
 			end if;
 			
 			if (horizontal_counter >= HorizontalA) and (horizontal_counter < HorizontalB) and
