@@ -4,13 +4,13 @@ Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.10 secs
+Total CPU time to Xst completion: 0.35 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.11 secs
+Total CPU time to Xst completion: 0.35 secs
  
 --> Reading design: top.prj
 
@@ -484,13 +484,13 @@ WARNING:Xst:647 - Input <din<7:0>> is never used. This port will be preserved an
     Found 10-bit register for signal <horizontal_counter>.
     Found 10-bit register for signal <vertical_counter>.
     Found 1-bit register for signal <clk50>.
-    Found 10-bit adder for signal <VerticalA[9]_GND_12_o_add_17_OUT> created at line 161.
-    Found 10-bit adder for signal <VerticalB[9]_GND_12_o_add_18_OUT> created at line 162.
-    Found 23-bit adder for signal <count[22]_GND_12_o_add_20_OUT> created at line 166.
-    Found 10-bit adder for signal <horizontal_counter[9]_GND_12_o_add_32_OUT> created at line 186.
-    Found 10-bit adder for signal <vertical_counter[9]_GND_12_o_add_34_OUT> created at line 189.
-    Found 10-bit subtractor for signal <GND_12_o_GND_12_o_sub_14_OUT<9:0>> created at line 155.
-    Found 10-bit subtractor for signal <GND_12_o_GND_12_o_sub_15_OUT<9:0>> created at line 156.
+    Found 10-bit adder for signal <VerticalA[9]_GND_12_o_add_17_OUT> created at line 156.
+    Found 10-bit adder for signal <VerticalB[9]_GND_12_o_add_18_OUT> created at line 157.
+    Found 23-bit adder for signal <count[22]_GND_12_o_add_20_OUT> created at line 161.
+    Found 10-bit adder for signal <horizontal_counter[9]_GND_12_o_add_32_OUT> created at line 181.
+    Found 10-bit adder for signal <vertical_counter[9]_GND_12_o_add_34_OUT> created at line 184.
+    Found 10-bit subtractor for signal <GND_12_o_GND_12_o_sub_14_OUT<9:0>> created at line 150.
+    Found 10-bit subtractor for signal <GND_12_o_GND_12_o_sub_15_OUT<9:0>> created at line 151.
     Found 10-bit comparator lessequal for signal <n0003> created at line 96
     Found 10-bit comparator greater for signal <horizontal_counter[9]_PWR_13_o_LessThan_2_o> created at line 96
     Found 10-bit comparator lessequal for signal <n0006> created at line 97
@@ -499,10 +499,10 @@ WARNING:Xst:647 - Input <din<7:0>> is never used. This port will be preserved an
     Found 10-bit comparator greater for signal <horizontal_counter[9]_HorizontalB[9]_LessThan_6_o> created at line 100
     Found 10-bit comparator lessequal for signal <n0015> created at line 101
     Found 10-bit comparator greater for signal <vertical_counter[9]_VerticalB[9]_LessThan_8_o> created at line 101
-    Found 10-bit comparator greater for signal <GND_12_o_horizontal_counter[9]_LessThan_29_o> created at line 174
-    Found 10-bit comparator greater for signal <horizontal_counter[9]_GND_12_o_LessThan_30_o> created at line 174
-    Found 10-bit comparator greater for signal <GND_12_o_vertical_counter[9]_LessThan_31_o> created at line 180
-    Found 10-bit comparator greater for signal <vertical_counter[9]_GND_12_o_LessThan_32_o> created at line 180
+    Found 10-bit comparator greater for signal <GND_12_o_horizontal_counter[9]_LessThan_29_o> created at line 169
+    Found 10-bit comparator greater for signal <horizontal_counter[9]_GND_12_o_LessThan_30_o> created at line 169
+    Found 10-bit comparator greater for signal <GND_12_o_vertical_counter[9]_LessThan_31_o> created at line 175
+    Found 10-bit comparator greater for signal <vertical_counter[9]_GND_12_o_LessThan_32_o> created at line 175
     Summary:
 	inferred   5 Adder/Subtractor(s).
 	inferred  70 D-type flip-flop(s).
@@ -689,15 +689,15 @@ Top Level Output File Name         : top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 1733
+# BELS                             : 1736
 #      GND                         : 1
 #      INV                         : 9
 #      LUT1                        : 59
-#      LUT2                        : 38
-#      LUT3                        : 49
-#      LUT4                        : 66
-#      LUT5                        : 50
-#      LUT6                        : 917
+#      LUT2                        : 36
+#      LUT3                        : 48
+#      LUT4                        : 64
+#      LUT5                        : 46
+#      LUT6                        : 929
 #      MUXCY                       : 69
 #      MUXF7                       : 275
 #      MUXF8                       : 136
@@ -726,14 +726,14 @@ Selected Device : 6slx16csg324-3
 
 Slice Logic Utilization: 
  Number of Slice Registers:            2277  out of  18224    12%  
- Number of Slice LUTs:                 1188  out of   9112    13%  
-    Number used as Logic:              1188  out of   9112    13%  
+ Number of Slice LUTs:                 1191  out of   9112    13%  
+    Number used as Logic:              1191  out of   9112    13%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   2814
-   Number with an unused Flip Flop:     537  out of   2814    19%  
-   Number with an unused LUT:          1626  out of   2814    57%  
-   Number of fully used LUT-FF pairs:   651  out of   2814    23%  
+ Number of LUT Flip Flop pairs used:   2813
+   Number with an unused Flip Flop:     536  out of   2813    19%  
+   Number with an unused LUT:          1622  out of   2813    57%  
+   Number of fully used LUT-FF pairs:   655  out of   2813    23%  
    Number of unique control sets:       274
 
 IO Utilization: 
@@ -841,28 +841,27 @@ Delay:               6.829ns (Levels of Logic = 6)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'vga1/clk25'
-  Clock period: 5.441ns (frequency: 183.773MHz)
-  Total number of paths / destination ports: 2378 / 120
+  Clock period: 5.437ns (frequency: 183.942MHz)
+  Total number of paths / destination ports: 2411 / 120
 -------------------------------------------------------------------------
-Delay:               5.441ns (Levels of Logic = 4)
-  Source:            vga1/horizontal_counter_4 (FF)
-  Destination:       vga1/blue_out (FF)
+Delay:               5.437ns (Levels of Logic = 3)
+  Source:            vga1/count_15 (FF)
+  Destination:       vga1/VerticalA_0 (FF)
   Source Clock:      vga1/clk25 rising
   Destination Clock: vga1/clk25 rising
 
-  Data Path: vga1/horizontal_counter_4 to vga1/blue_out
+  Data Path: vga1/count_15 to vga1/VerticalA_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q             5   0.447   1.059  vga1/horizontal_counter_4 (vga1/horizontal_counter_4)
-     LUT5:I0->O            1   0.203   0.808  vga1/GND_12_o_vertical_counter[9]_AND_525_o3 (vga1/GND_12_o_vertical_counter[9]_AND_525_o3)
-     LUT3:I0->O            1   0.205   0.580  vga1/GND_12_o_vertical_counter[9]_AND_525_o4 (vga1/GND_12_o_vertical_counter[9]_AND_525_o4)
-     LUT6:I5->O            4   0.205   0.684  vga1/GND_12_o_vertical_counter[9]_AND_525_o5 (vga1/GND_12_o_vertical_counter[9]_AND_525_o)
-     LUT3:I2->O            2   0.205   0.616  vga1/_n01611 (vga1/_n0161)
-     FDR:R                     0.430          vga1/blue_out
+     FDCE:C->Q             2   0.447   0.981  vga1/count_15 (vga1/count_15)
+     LUT6:I0->O           24   0.203   1.401  vga1/memout[7]_GND_12_o_AND_529_o5 (vga1/memout[7]_GND_12_o_AND_529_o5)
+     LUT5:I2->O            1   0.205   0.580  vga1/memout[7]_GND_12_o_AND_529_o6 (vga1/memout[7]_GND_12_o_AND_529_o)
+     LUT3:I2->O           20   0.205   1.092  vga1/_n0187_inv1 (vga1/_n0187_inv)
+     FDCE:CE                   0.322          vga1/VerticalB_2
     ----------------------------------------
-    Total                      5.441ns (1.695ns logic, 3.747ns route)
-                                       (31.1% logic, 68.9% route)
+    Total                      5.437ns (1.382ns logic, 4.055ns route)
+                                       (25.4% logic, 74.6% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'vga1/clk50'
@@ -889,7 +888,7 @@ Delay:               1.456ns (Levels of Logic = 0)
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
   Total number of paths / destination ports: 21 / 21
 -------------------------------------------------------------------------
-Offset:              3.963ns (Levels of Logic = 2)
+Offset:              3.962ns (Levels of Logic = 2)
   Source:            rst (PAD)
   Destination:       divclk1/clkdiv (FF)
   Destination Clock: clk rising
@@ -898,11 +897,11 @@ Offset:              3.963ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O           302   1.222   2.436  rst_IBUF (rst_IBUF)
+     IBUF:I->O           299   1.222   2.435  rst_IBUF (rst_IBUF)
      LUT6:I0->O            1   0.203   0.000  divclk1/clkdiv_rstpot (divclk1/clkdiv_rstpot)
      FD:D                      0.102          divclk1/clkdiv
     ----------------------------------------
-    Total                      3.963ns (1.527ns logic, 2.436ns route)
+    Total                      3.962ns (1.527ns logic, 2.435ns route)
                                        (38.5% logic, 61.5% route)
 
 =========================================================================
@@ -918,7 +917,7 @@ Offset:              6.831ns (Levels of Logic = 4)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O           302   1.222   2.300  rst_IBUF (rst_IBUF)
+     IBUF:I->O           299   1.222   2.299  rst_IBUF (rst_IBUF)
      LUT3:I0->O            4   0.205   0.788  ram1/_n2247_inv11 (ram1/_n2247_inv1)
      LUT6:I4->O            4   0.203   0.788  ram1/_n2303_inv11 (ram1/_n2303_inv1)
      LUT3:I1->O            8   0.203   0.802  ram1/_n2303_inv1 (ram1/_n2303_inv)
@@ -929,9 +928,9 @@ Offset:              6.831ns (Levels of Logic = 4)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'vga1/clk25'
-  Total number of paths / destination ports: 90 / 90
+  Total number of paths / destination ports: 91 / 90
 -------------------------------------------------------------------------
-Offset:              5.806ns (Levels of Logic = 3)
+Offset:              6.270ns (Levels of Logic = 3)
   Source:            rst (PAD)
   Destination:       vga1/horizontal_counter_9 (FF)
   Destination Clock: vga1/clk25 rising
@@ -940,13 +939,13 @@ Offset:              5.806ns (Levels of Logic = 3)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O           302   1.222   2.072  rst_IBUF (rst_IBUF)
-     LUT2:I1->O            1   0.205   0.580  vga1/_n0172_SW0 (N29)
-     LUT6:I5->O           20   0.205   1.092  vga1/_n0172 (vga1/_n0172)
+     IBUF:I->O           299   1.222   2.435  rst_IBUF (rst_IBUF)
+     LUT6:I0->O            1   0.203   0.684  vga1/_n01721_SW0 (N25)
+     LUT6:I4->O           20   0.203   1.092  vga1/_n01721 (vga1/_n01721)
      FDRE:R                    0.430          vga1/horizontal_counter_0
     ----------------------------------------
-    Total                      5.806ns (2.062ns logic, 3.744ns route)
-                                       (35.5% logic, 64.5% route)
+    Total                      6.270ns (2.058ns logic, 4.212ns route)
+                                       (32.8% logic, 67.2% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'divclk1/clkdiv'
@@ -971,7 +970,7 @@ Offset:              5.087ns (Levels of Logic = 1)
 Timing constraint: Default OFFSET OUT AFTER for Clock 'vga1/clk25'
   Total number of paths / destination ports: 5 / 5
 -------------------------------------------------------------------------
-Offset:              3.634ns (Levels of Logic = 1)
+Offset:              3.668ns (Levels of Logic = 1)
   Source:            vga1/red_out (FF)
   Destination:       red_out (PAD)
   Source Clock:      vga1/clk25 rising
@@ -980,11 +979,11 @@ Offset:              3.634ns (Levels of Logic = 1)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q              2   0.447   0.616  vga1/red_out (vga1/red_out)
+     FDR:C->Q              3   0.447   0.650  vga1/red_out (vga1/red_out)
      OBUF:I->O                 2.571          red_out_OBUF (red_out)
     ----------------------------------------
-    Total                      3.634ns (3.018ns logic, 0.616ns route)
-                                       (83.0% logic, 17.0% route)
+    Total                      3.668ns (3.018ns logic, 0.650ns route)
+                                       (82.3% logic, 17.7% route)
 
 =========================================================================
 
@@ -1012,8 +1011,8 @@ Clock to Setup on destination clock vga1/clk25
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-divclk1/clkdiv |    7.503|         |         |         |
-vga1/clk25     |    5.441|         |         |         |
+divclk1/clkdiv |    7.550|         |         |         |
+vga1/clk25     |    5.437|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock vga1/clk50
@@ -1027,12 +1026,12 @@ vga1/clk50     |    1.456|         |         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 21.00 secs
-Total CPU time to Xst completion: 21.76 secs
+Total REAL time to Xst completion: 24.00 secs
+Total CPU time to Xst completion: 24.59 secs
  
 --> 
 
-Total memory usage is 273452 kilobytes
+Total memory usage is 274156 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    8 (   0 filtered)
