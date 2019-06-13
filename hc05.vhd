@@ -52,7 +52,7 @@ SIGNAL CONT_GUESS   : integer range 0 to 16;
 begin
 an   <= "1110";
 addr <= PC;
-led  <= pc;
+led  <= PC;
 
 
 

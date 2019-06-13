@@ -46,7 +46,7 @@ signal VerticalB   			: STD_LOGIC_VECTOR (9 downto 0);
 signal HorizontalA 			: STD_LOGIC_VECTOR (9 downto 0);
 signal HorizontalB 			: STD_LOGIC_VECTOR (9 downto 0);
 signal count 		 		: INTEGER range 0 to 5000001;
-signal countOK				: INTEGER range 0 to 50001;
+signal countOK				: INTEGER range 0 to 5000001;
 
 begin
 
@@ -104,17 +104,17 @@ begin
 			
 --			if VerticalA < "0000100111" then -- Se a borda do quadrado for menor que a parte superior, ganhou
 --				ganhou := '1';
-					
---			if VerticalB > "1000000111" then -- Se a borda do quadrado for maior que a parte inferior, perdeu
+--					
+--			elsif VerticalB > "1000000111" then -- Se a borda do quadrado for maior que a parte inferior, perdeu
 --				perdeu := '1';
 --			end if;
 --			
 --			
-----			if ganhou = '1' then
-----				printa := 2;
+--			if ganhou = '1' then
+--				printa := 2;
 --			
 --			
---			if perdeu = '1' then
+--			elsif perdeu = '1' then
 --				printa := 3;
 --			end if;
 			
@@ -144,28 +144,29 @@ begin
 				blue_out <= '1';
 			end if;
 		end if;
-		
-		
 		if memout = "00000001" then
-			VerticalA <= VerticalA - "0000011111";
-			VerticalB <= VerticalB - "0000011111";
-		
---		elsif memout = "00000001" then
---			countOK <= countOK + 1;
-		elsif memout = "00000000" and count = 1000000 then
-			VerticalA <= VerticalA + "0000000001";
-			VerticalB <= VerticalB + "0000000001";
-			count <= 0;
-		
-		elsif memout = "00000000" then
-			count <= count + 1;
+			if countOK = 1000000 then
+				VerticalA <= VerticalA - "0000000001";
+				VerticalB <= VerticalB - "0000000001";
+				countOK <= 0;
+			end if;
+			countOK <= countOK + 1;
 		end if;
+		
+		if memout = "00000000" then
+			if count = 2000000 then
+				VerticalA <= VerticalA + "0000000001";
+				VerticalB <= VerticalB + "0000000001";
+				count <= 0;
+			end if;
+			
+		count <= count + 1;
 	
 	--	if (VerticalB = 520) then
 	--		VerticalA <= "0011011100";
 	--		VerticalB <= "0011110000";
 	--	end if;
-		
+		end if;
 		if (horizontal_counter > "0000000000")	and (horizontal_counter < "0001100001") then --96+1
 			hs_out <= '0';
 		else
@@ -188,7 +189,6 @@ begin
 		if (vertical_counter="1000001001") then
 			vertical_counter <= "0000000000";
 		end if;
-	
 	end if;
 	
 end process;
