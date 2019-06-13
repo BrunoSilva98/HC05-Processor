@@ -45,7 +45,7 @@ signal VerticalA   			: STD_LOGIC_VECTOR (9 downto 0);
 signal VerticalB   			: STD_LOGIC_VECTOR (9 downto 0);
 signal HorizontalA 			: STD_LOGIC_VECTOR (9 downto 0);
 signal HorizontalB 			: STD_LOGIC_VECTOR (9 downto 0);
-signal count 		 		: INTEGER range 0 to 500001;
+signal count 		 		: INTEGER range 0 to 5000001;
 signal countOK				: INTEGER range 0 to 50001;
 
 begin
@@ -92,40 +92,41 @@ begin
 		perdeu := '0';
 		
 	elsif clk25'event and clk25 = '1' then
+	
 		if (horizontal_counter >= "0001111000" ) and (horizontal_counter < "1100001100" ) and -- 120 e 780 
 		   (vertical_counter >= "0000101000" ) and (vertical_counter < "1000001000" ) then -- 40 e 520
 			printa := 1;
 		
-			if VerticalA < "0000100111" then -- Se a borda do quadrado for menor que a parte superior, ganhou
-				ganhou := '1';
-			end if;
-			
-			if VerticalB > "1000000111" then -- Se a borda do quadrado for maior que a parte inferior, perdeu
-				perdeu := '1';
-			end if;
-			
 			if (horizontal_counter >= HorizontalA) and (horizontal_counter < HorizontalB) and
-			   (vertical_counter >= VerticalA) and (vertical_counter < VerticalB) then
-					printa := 0;
+					(vertical_counter >= VerticalA) and (vertical_counter < VerticalB) then
+						printa := 0;
 			end if;
 			
-			if ganhou = '1' then
-				printa := 2;
-			end if;
-			
-			if perdeu = '1' then
-				printa := 3;
-			end if;
+--			if VerticalA < "0000100111" then -- Se a borda do quadrado for menor que a parte superior, ganhou
+--				ganhou := '1';
+					
+--			if VerticalB > "1000000111" then -- Se a borda do quadrado for maior que a parte inferior, perdeu
+--				perdeu := '1';
+--			end if;
+--			
+--			
+----			if ganhou = '1' then
+----				printa := 2;
+--			
+--			
+--			if perdeu = '1' then
+--				printa := 3;
+--			end if;
 			
 			if printa = 0 then
 				red_out <= '0';
-				green_out <= '0';
+				green_out <= '1';
 				blue_out <= '0';
 				
 			elsif printa = 1 then
-				red_out <= '0';
+				red_out <= '1';
 				green_out <= '0';
-				blue_out <= '1';
+				blue_out <= '0';
 				
 			elsif printa = 2 then
 				red_out <= '0';
@@ -136,21 +137,24 @@ begin
 				red_out <= '1';
 				green_out <= '0';
 				blue_out <= '0';
-			end if;
 			
+			else
+				red_out <= '0';
+				green_out <= '0';
+				blue_out <= '1';
+			end if;
 		end if;
 		
-		if memout = "00000001" and countOK = 50000 then
-			VerticalA <= VerticalA - "0000000111";
-			VerticalB <= VerticalB - "0000000111";
 		
-		elsif memout = "00000001" then
-			countOK <= countOK + 1;
-		end if;
+		if memout = "00000001" then
+			VerticalA <= VerticalA - "0000011111";
+			VerticalB <= VerticalB - "0000011111";
 		
-		if memout = "00000000" and count = 500000 then
-			VerticalA <= VerticalA + "0000000011";
-			VerticalB <= VerticalB + "0000000011";
+--		elsif memout = "00000001" then
+--			countOK <= countOK + 1;
+		elsif memout = "00000000" and count = 1000000 then
+			VerticalA <= VerticalA + "0000000001";
+			VerticalB <= VerticalB + "0000000001";
 			count <= 0;
 		
 		elsif memout = "00000000" then
