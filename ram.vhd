@@ -41,12 +41,9 @@ begin
 		RAM8X8(8) <= "00000001"; -- Valor 1
 		RAM8X8(9) <= "00111011"; -- Escrever no endereço 240
 		RAM8X8(10) <= "00000000"; -- Valor 0
-
-		--RAM8X8(9) <= "10101100"; -- Escrever no endereço 240
-		--RAM8X8(10) <= "00000000"; -- Valor 0
 		RAM8X8(11) <= "00111011"; -- Jmp incondicional
 		RAM8X8(12) <= "00000000"; -- Endereço 0
-		RAM8X8(240) <= "00000001"; -- Valor verificado no jogo
+		RAM8X8(240) <= "00000000"; -- Valor verificado no jogo
 		
 	elsif clk'event and clk = '1' then
 		-- Operação de escrita

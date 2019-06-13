@@ -102,21 +102,21 @@ begin
 						printa := 0;
 			end if;
 			
---			if VerticalA < "0000100111" then -- Se a borda do quadrado for menor que a parte superior, ganhou
---				ganhou := '1';
---					
---			elsif VerticalB > "1000000111" then -- Se a borda do quadrado for maior que a parte inferior, perdeu
---				perdeu := '1';
---			end if;
---			
---			
---			if ganhou = '1' then
---				printa := 2;
---			
---			
---			elsif perdeu = '1' then
---				printa := 3;
---			end if;
+			if VerticalA < "0000100111" then -- Se a borda do quadrado for menor que a parte superior, ganhou
+				ganhou := '1';
+					
+			elsif VerticalB > "1000000111" then -- Se a borda do quadrado for maior que a parte inferior, perdeu
+				perdeu := '1';
+			end if;
+			
+			
+			if ganhou = '1' then
+				printa := 2;
+			
+			
+			elsif perdeu = '1' then
+				printa := 3;
+			end if;
 			
 			if printa = 0 then
 				red_out <= '0';
@@ -145,12 +145,12 @@ begin
 			end if;
 		end if;
 		if memout = "00000001" then
-			if countOK = 1000000 then
-				VerticalA <= VerticalA - "0000000001";
-				VerticalB <= VerticalB - "0000000001";
-				countOK <= 0;
-			end if;
-			countOK <= countOK + 1;
+			--if countOK = 100000 then
+				VerticalA <= VerticalA - "0000001111";
+				VerticalB <= VerticalB - "0000001111";
+			--	countOK <= 0;
+--			end if;
+			--countOK <= countOK + 1;
 		end if;
 		
 		if memout = "00000000" then
@@ -161,12 +161,8 @@ begin
 			end if;
 			
 		count <= count + 1;
-	
-	--	if (VerticalB = 520) then
-	--		VerticalA <= "0011011100";
-	--		VerticalB <= "0011110000";
-	--	end if;
 		end if;
+		
 		if (horizontal_counter > "0000000000")	and (horizontal_counter < "0001100001") then --96+1
 			hs_out <= '0';
 		else
