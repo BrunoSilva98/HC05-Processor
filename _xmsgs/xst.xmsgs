@@ -8,13 +8,10 @@
 <msg type="info" file="Xst" num="0" delta="new" >Part-select index evaluated to out of bound value may lead to incorrect synthesis results; it is recommended not to use them in RTL
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="92" delta="old" >"C:\Users\Laboratorios\Desktop\HC05-Processor\hc05.vhd" Line 82: <arg fmt="%s" index="1">numero_guess</arg> should be on the sensitivity list of the process
+<msg type="warning" file="HDLCompiler" num="92" delta="old" >"C:\Users\Laboratorios\Downloads\HC05-Processor\hc05.vhd" Line 82: <arg fmt="%s" index="1">numero_guess</arg> should be on the sensitivity list of the process
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\Users\Laboratorios\Desktop\HC05-Processor\hc05.vhd" Line 60: Assignment to <arg fmt="%s" index="1">display_7</arg> ignored, since the identifier is never used
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:\Users\Laboratorios\Desktop\HC05-Processor\vga.vhd" Line 77: Assignment to <arg fmt="%s" index="1">countok</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\Users\Laboratorios\Downloads\HC05-Processor\hc05.vhd" Line 60: Assignment to <arg fmt="%s" index="1">display_7</arg> ignored, since the identifier is never used
 </msg>
 
 <msg type="info" file="Xst" num="3019" delta="old" >HDL ADVISOR - <arg fmt="%s" index="1">2048</arg> flip-flops were inferred for signal &lt;<arg fmt="%s" index="2">ram8x8</arg>&gt;. You may be trying to describe a RAM in a way that is incompatible with block and distributed RAM resources available on Xilinx devices, or with a specific template that is not supported. Please review the Xilinx resources documentation and the XST user manual for coding guidelines. Taking advantage of RAM resources will lead to improved device usage and reduced synthesis time.

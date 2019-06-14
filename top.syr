@@ -4,13 +4,13 @@ Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total CPU time to Xst completion: 0.11 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total CPU time to Xst completion: 0.11 secs
  
 --> Reading design: top.prj
 
@@ -106,19 +106,19 @@ INFO:Xst - Part-select index evaluated to out of bound value may lead to incorre
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
-Parsing VHDL file "C:\Users\Laboratorios\Desktop\HC05-Processor\vga.vhd" into library work
+Parsing VHDL file "C:\Users\Laboratorios\Downloads\HC05-Processor\vga.vhd" into library work
 Parsing entity <vga>.
 Parsing architecture <Behavioral> of entity <vga>.
-Parsing VHDL file "C:\Users\Laboratorios\Desktop\HC05-Processor\ram.vhd" into library work
+Parsing VHDL file "C:\Users\Laboratorios\Downloads\HC05-Processor\ram.vhd" into library work
 Parsing entity <ram>.
 Parsing architecture <Behavioral> of entity <ram>.
-Parsing VHDL file "C:\Users\Laboratorios\Desktop\HC05-Processor\hc05.vhd" into library work
+Parsing VHDL file "C:\Users\Laboratorios\Downloads\HC05-Processor\hc05.vhd" into library work
 Parsing entity <hc05>.
 Parsing architecture <Behavioral> of entity <hc05>.
-Parsing VHDL file "C:\Users\Laboratorios\Desktop\HC05-Processor\divclk.vhd" into library work
+Parsing VHDL file "C:\Users\Laboratorios\Downloads\HC05-Processor\divclk.vhd" into library work
 Parsing entity <divclk>.
 Parsing architecture <Behavioral> of entity <divclk>.
-Parsing VHDL file "C:\Users\Laboratorios\Desktop\HC05-Processor\top.vhd" into library work
+Parsing VHDL file "C:\Users\Laboratorios\Downloads\HC05-Processor\top.vhd" into library work
 Parsing entity <top>.
 Parsing architecture <Behavioral> of entity <top>.
 
@@ -133,24 +133,23 @@ Elaborating entity <divclk> (architecture <Behavioral>) from library <work>.
 Elaborating entity <ram> (architecture <Behavioral>) from library <work>.
 
 Elaborating entity <hc05> (architecture <Behavioral>) from library <work>.
-WARNING:HDLCompiler:92 - "C:\Users\Laboratorios\Desktop\HC05-Processor\hc05.vhd" Line 82: numero_guess should be on the sensitivity list of the process
-WARNING:HDLCompiler:1127 - "C:\Users\Laboratorios\Desktop\HC05-Processor\hc05.vhd" Line 60: Assignment to display_7 ignored, since the identifier is never used
+WARNING:HDLCompiler:92 - "C:\Users\Laboratorios\Downloads\HC05-Processor\hc05.vhd" Line 82: numero_guess should be on the sensitivity list of the process
+WARNING:HDLCompiler:1127 - "C:\Users\Laboratorios\Downloads\HC05-Processor\hc05.vhd" Line 60: Assignment to display_7 ignored, since the identifier is never used
 
 Elaborating entity <vga> (architecture <Behavioral>) from library <work>.
-WARNING:HDLCompiler:1127 - "C:\Users\Laboratorios\Desktop\HC05-Processor\vga.vhd" Line 77: Assignment to countok ignored, since the identifier is never used
 
 =========================================================================
 *                           HDL Synthesis                               *
 =========================================================================
 
 Synthesizing Unit <top>.
-    Related source file is "c:/users/laboratorios/desktop/hc05-processor/top.vhd".
+    Related source file is "c:/users/laboratorios/downloads/hc05-processor/top.vhd".
     Summary:
 	no macro.
 Unit <top> synthesized.
 
 Synthesizing Unit <divclk>.
-    Related source file is "c:/users/laboratorios/desktop/hc05-processor/divclk.vhd".
+    Related source file is "c:/users/laboratorios/downloads/hc05-processor/divclk.vhd".
     Found 20-bit register for signal <cont>.
     Found 1-bit register for signal <clkdiv>.
     Found 20-bit adder for signal <cont[19]_GND_4_o_add_0_OUT> created at line 27.
@@ -163,7 +162,7 @@ Synthesizing Unit <divclk>.
 Unit <divclk> synthesized.
 
 Synthesizing Unit <ram>.
-    Related source file is "c:/users/laboratorios/desktop/hc05-processor/ram.vhd".
+    Related source file is "c:/users/laboratorios/downloads/hc05-processor/ram.vhd".
     Found 8-bit register for signal <ram8x8<0>>.
     Found 8-bit register for signal <ram8x8<1>>.
     Found 8-bit register for signal <ram8x8<2>>.
@@ -171,13 +170,13 @@ Synthesizing Unit <ram>.
     Found 8-bit register for signal <ram8x8<9>>.
     Found 8-bit register for signal <ram8x8<11>>.
     Found 8-bit register for signal <ram8x8<4>>.
-    Found 8-bit register for signal <ram8x8<10>>.
-    Found 8-bit register for signal <ram8x8<12>>.
-    Found 8-bit register for signal <ram8x8<240>>.
     Found 8-bit register for signal <ram8x8<5>>.
     Found 8-bit register for signal <ram8x8<6>>.
     Found 8-bit register for signal <ram8x8<8>>.
     Found 8-bit register for signal <ram8x8<7>>.
+    Found 8-bit register for signal <ram8x8<10>>.
+    Found 8-bit register for signal <ram8x8<12>>.
+    Found 8-bit register for signal <ram8x8<240>>.
     Found 8-bit register for signal <ram8x8<13>>.
     Found 8-bit register for signal <ram8x8<14>>.
     Found 8-bit register for signal <ram8x8<15>>.
@@ -428,7 +427,7 @@ INFO:Xst:3019 - HDL ADVISOR - 2048 flip-flops were inferred for signal <ram8x8>.
 Unit <ram> synthesized.
 
 Synthesizing Unit <hc05>.
-    Related source file is "c:/users/laboratorios/desktop/hc05-processor/hc05.vhd".
+    Related source file is "c:/users/laboratorios/downloads/hc05-processor/hc05.vhd".
     Found 8-bit register for signal <PC>.
     Found 8-bit register for signal <A>.
     Found 2-bit register for signal <FASE>.
@@ -470,10 +469,11 @@ Synthesizing Unit <hc05>.
 Unit <hc05> synthesized.
 
 Synthesizing Unit <vga>.
-    Related source file is "c:/users/laboratorios/desktop/hc05-processor/vga.vhd".
+    Related source file is "c:/users/laboratorios/downloads/hc05-processor/vga.vhd".
 WARNING:Xst:647 - Input <din<7:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
     Found 10-bit register for signal <VerticalB>.
     Found 23-bit register for signal <count>.
+    Found 23-bit register for signal <countOK>.
     Found 10-bit register for signal <VerticalA>.
     Found 1-bit register for signal <ganhou>.
     Found 1-bit register for signal <perdeu>.
@@ -486,13 +486,14 @@ WARNING:Xst:647 - Input <din<7:0>> is never used. This port will be preserved an
     Found 10-bit register for signal <horizontal_counter>.
     Found 10-bit register for signal <vertical_counter>.
     Found 1-bit register for signal <clk50>.
-    Found 10-bit adder for signal <VerticalA[9]_GND_12_o_add_23_OUT> created at line 158.
-    Found 10-bit adder for signal <VerticalB[9]_GND_12_o_add_24_OUT> created at line 159.
-    Found 23-bit adder for signal <count[22]_GND_12_o_add_28_OUT> created at line 163.
-    Found 10-bit adder for signal <horizontal_counter[9]_GND_12_o_add_36_OUT> created at line 178.
-    Found 10-bit adder for signal <vertical_counter[9]_GND_12_o_add_38_OUT> created at line 181.
-    Found 10-bit subtractor for signal <GND_12_o_GND_12_o_sub_18_OUT<9:0>> created at line 149.
-    Found 10-bit subtractor for signal <GND_12_o_GND_12_o_sub_19_OUT<9:0>> created at line 150.
+    Found 23-bit adder for signal <countOK[22]_GND_12_o_add_23_OUT> created at line 153.
+    Found 10-bit adder for signal <VerticalA[9]_GND_12_o_add_29_OUT> created at line 158.
+    Found 10-bit adder for signal <VerticalB[9]_GND_12_o_add_30_OUT> created at line 159.
+    Found 23-bit adder for signal <count[22]_GND_12_o_add_34_OUT> created at line 163.
+    Found 10-bit adder for signal <horizontal_counter[9]_GND_12_o_add_42_OUT> created at line 178.
+    Found 10-bit adder for signal <vertical_counter[9]_GND_12_o_add_44_OUT> created at line 181.
+    Found 10-bit subtractor for signal <GND_12_o_GND_12_o_sub_19_OUT<9:0>> created at line 149.
+    Found 10-bit subtractor for signal <GND_12_o_GND_12_o_sub_20_OUT<9:0>> created at line 150.
     Found 10-bit comparator lessequal for signal <n0003> created at line 96
     Found 10-bit comparator greater for signal <horizontal_counter[9]_PWR_13_o_LessThan_2_o> created at line 96
     Found 10-bit comparator lessequal for signal <n0006> created at line 97
@@ -503,13 +504,13 @@ WARNING:Xst:647 - Input <din<7:0>> is never used. This port will be preserved an
     Found 10-bit comparator greater for signal <vertical_counter[9]_VerticalB[9]_LessThan_8_o> created at line 101
     Found 10-bit comparator greater for signal <VerticalA[9]_GND_12_o_LessThan_9_o> created at line 105
     Found 10-bit comparator greater for signal <PWR_13_o_VerticalB[9]_LessThan_10_o> created at line 108
-    Found 10-bit comparator greater for signal <GND_12_o_horizontal_counter[9]_LessThan_33_o> created at line 166
-    Found 10-bit comparator greater for signal <horizontal_counter[9]_GND_12_o_LessThan_34_o> created at line 166
-    Found 10-bit comparator greater for signal <GND_12_o_vertical_counter[9]_LessThan_35_o> created at line 172
-    Found 10-bit comparator greater for signal <vertical_counter[9]_GND_12_o_LessThan_36_o> created at line 172
+    Found 10-bit comparator greater for signal <GND_12_o_horizontal_counter[9]_LessThan_39_o> created at line 166
+    Found 10-bit comparator greater for signal <horizontal_counter[9]_GND_12_o_LessThan_40_o> created at line 166
+    Found 10-bit comparator greater for signal <GND_12_o_vertical_counter[9]_LessThan_41_o> created at line 172
+    Found 10-bit comparator greater for signal <vertical_counter[9]_GND_12_o_LessThan_42_o> created at line 172
     Summary:
-	inferred   7 Adder/Subtractor(s).
-	inferred  72 D-type flip-flop(s).
+	inferred   8 Adder/Subtractor(s).
+	inferred  95 D-type flip-flop(s).
 	inferred  14 Comparator(s).
 	inferred  10 Multiplexer(s).
 Unit <vga> synthesized.
@@ -520,22 +521,22 @@ HDL Synthesis Report
 Macro Statistics
 # RAMs                                                 : 1
  32x8-bit single-port Read Only RAM                    : 1
-# Adders/Subtractors                                   : 14
+# Adders/Subtractors                                   : 15
  10-bit adder                                          : 4
  10-bit subtractor                                     : 2
  2-bit adder                                           : 1
  20-bit adder                                          : 1
- 23-bit adder                                          : 1
+ 23-bit adder                                          : 2
  5-bit adder                                           : 1
  8-bit adder                                           : 2
  8-bit addsub                                          : 1
  8-bit subtractor                                      : 1
-# Registers                                            : 281
+# Registers                                            : 282
  1-bit register                                        : 11
  10-bit register                                       : 4
  2-bit register                                        : 1
  20-bit register                                       : 1
- 23-bit register                                       : 1
+ 23-bit register                                       : 2
  5-bit register                                        : 2
  8-bit register                                        : 261
 # Comparators                                          : 16
@@ -581,6 +582,7 @@ Unit <hc05> synthesized (advanced).
 
 Synthesizing (advanced) Unit <vga>.
 The following registers are absorbed into counter <count>: 1 register on signal <count>.
+The following registers are absorbed into counter <countOK>: 1 register on signal <countOK>.
 The following registers are absorbed into counter <horizontal_counter>: 1 register on signal <horizontal_counter>.
 The following registers are absorbed into counter <vertical_counter>: 1 register on signal <vertical_counter>.
 Unit <vga> synthesized (advanced).
@@ -599,10 +601,10 @@ Macro Statistics
  8-bit adder                                           : 2
  8-bit addsub                                          : 1
  8-bit subtractor                                      : 1
-# Counters                                             : 4
+# Counters                                             : 5
  10-bit up counter                                     : 2
  20-bit up counter                                     : 1
- 23-bit up counter                                     : 1
+ 23-bit up counter                                     : 2
 # Registers                                            : 2131
  Flip-Flops                                            : 2131
 # Comparators                                          : 16
@@ -651,7 +653,7 @@ Optimizing unit <ram> ...
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block top, actual ratio is 44.
+Found area constraint ratio of 100 (+ 5) on block top, actual ratio is 45.
 FlipFlop hc051/OPCODE_0 has been replicated 2 time(s)
 FlipFlop hc051/OPCODE_2 has been replicated 2 time(s)
 FlipFlop hc051/OPCODE_3 has been replicated 1 time(s)
@@ -667,8 +669,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 2278
- Flip-Flops                                            : 2278
+# Registers                                            : 2301
+ Flip-Flops                                            : 2301
 
 =========================================================================
 
@@ -691,26 +693,26 @@ Top Level Output File Name         : top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 1721
+# BELS                             : 1792
 #      GND                         : 1
-#      INV                         : 9
-#      LUT1                        : 59
-#      LUT2                        : 38
-#      LUT3                        : 48
-#      LUT4                        : 68
+#      INV                         : 10
+#      LUT1                        : 81
+#      LUT2                        : 39
+#      LUT3                        : 47
+#      LUT4                        : 65
 #      LUT5                        : 51
-#      LUT6                        : 902
-#      MUXCY                       : 69
-#      MUXF7                       : 276
+#      LUT6                        : 909
+#      MUXCY                       : 91
+#      MUXF7                       : 275
 #      MUXF8                       : 136
 #      VCC                         : 1
-#      XORCY                       : 63
-# FlipFlops/Latches                : 2278
+#      XORCY                       : 86
+# FlipFlops/Latches                : 2301
 #      FD                          : 4
 #      FDC                         : 27
-#      FDCE                        : 206
+#      FDCE                        : 226
 #      FDE                         : 1970
-#      FDPE                        : 50
+#      FDPE                        : 53
 #      FDR                         : 1
 #      FDRE                        : 20
 # Clock Buffers                    : 3
@@ -727,16 +729,16 @@ Selected Device : 6slx16csg324-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:            2278  out of  18224    12%  
- Number of Slice LUTs:                 1175  out of   9112    12%  
-    Number used as Logic:              1175  out of   9112    12%  
+ Number of Slice Registers:            2301  out of  18224    12%  
+ Number of Slice LUTs:                 1202  out of   9112    13%  
+    Number used as Logic:              1202  out of   9112    13%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   2796
-   Number with an unused Flip Flop:     518  out of   2796    18%  
-   Number with an unused LUT:          1621  out of   2796    57%  
-   Number of fully used LUT-FF pairs:   657  out of   2796    23%  
-   Number of unique control sets:       274
+ Number of LUT Flip Flop pairs used:   2823
+   Number with an unused Flip Flop:     522  out of   2823    18%  
+   Number with an unused LUT:          1621  out of   2823    57%  
+   Number of fully used LUT-FF pairs:   680  out of   2823    24%  
+   Number of unique control sets:       275
 
 IO Utilization: 
  Number of IOs:                          32
@@ -768,7 +770,7 @@ Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
 clk                                | BUFGP                  | 22    |
 divclk1/clkdiv                     | BUFG                   | 2186  |
-vga1/clk25                         | BUFG                   | 69    |
+vga1/clk25                         | BUFG                   | 92    |
 vga1/clk50                         | NONE(vga1/clk25)       | 1     |
 -----------------------------------+------------------------+-------+
 INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
@@ -782,7 +784,7 @@ Timing Summary:
 Speed Grade: -3
 
    Minimum period: 6.829ns (Maximum Frequency: 146.432MHz)
-   Minimum input arrival time before clock: 6.730ns
+   Minimum input arrival time before clock: 6.731ns
    Maximum output required time after clock: 5.087ns
    Maximum combinational path delay: No path found
 
@@ -792,10 +794,10 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 4.314ns (frequency: 231.785MHz)
+  Clock period: 4.180ns (frequency: 239.214MHz)
   Total number of paths / destination ports: 632 / 22
 -------------------------------------------------------------------------
-Delay:               4.314ns (Levels of Logic = 3)
+Delay:               4.180ns (Levels of Logic = 3)
   Source:            divclk1/cont_7 (FF)
   Destination:       divclk1/cont_0 (FF)
   Source Clock:      clk rising
@@ -806,13 +808,13 @@ Delay:               4.314ns (Levels of Logic = 3)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      FDC:C->Q              3   0.447   1.015  divclk1/cont_7 (divclk1/cont_7)
-     LUT6:I0->O            1   0.203   0.944  divclk1/PWR_4_o_cont[19]_equal_3_o<19>1 (divclk1/PWR_4_o_cont[19]_equal_3_o<19>)
-     LUT6:I0->O           20   0.203   1.197  divclk1/PWR_4_o_cont[19]_equal_3_o<19>4 (divclk1/PWR_4_o_cont[19]_equal_3_o)
+     LUT6:I0->O            1   0.203   0.808  divclk1/PWR_4_o_cont[19]_equal_3_o<19>1 (divclk1/PWR_4_o_cont[19]_equal_3_o<19>)
+     LUT6:I3->O           20   0.205   1.197  divclk1/PWR_4_o_cont[19]_equal_3_o<19>4 (divclk1/PWR_4_o_cont[19]_equal_3_o)
      LUT2:I0->O            1   0.203   0.000  divclk1/Mcount_cont_eqn_01 (divclk1/Mcount_cont_eqn_0)
      FDC:D                     0.102          divclk1/cont_0
     ----------------------------------------
-    Total                      4.314ns (1.158ns logic, 3.156ns route)
-                                       (26.8% logic, 73.2% route)
+    Total                      4.180ns (1.160ns logic, 3.020ns route)
+                                       (27.7% logic, 72.3% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'divclk1/clkdiv'
@@ -834,7 +836,7 @@ Delay:               6.829ns (Levels of Logic = 6)
      LUT6:I5->O           19   0.205   1.072  hc051/GND_11_o_OPCODE[7]_equal_106_o<7>1 (hc051/GND_11_o_OPCODE[7]_equal_106_o)
      LUT6:I5->O            5   0.205   0.715  hc051/GND_11_o_PC[7]_select_119_OUT<4>121 (hc051/GND_11_o_PC[7]_select_119_OUT<4>12)
      LUT6:I5->O            8   0.205   0.803  hc051/Mmux_ESTADO[2]_PC[7]_wide_mux_126_OUT513 (hc051/Mmux_ESTADO[2]_PC[7]_wide_mux_126_OUT51)
-     LUT6:I5->O            1   0.205   0.684  hc051/Mmux_ESTADO[2]_PC[7]_wide_mux_126_OUT84_SW0 (N41)
+     LUT6:I5->O            1   0.205   0.684  hc051/Mmux_ESTADO[2]_PC[7]_wide_mux_126_OUT84_SW0 (N39)
      LUT6:I4->O            1   0.203   0.000  hc051/Mmux_ESTADO[2]_PC[7]_wide_mux_126_OUT85 (hc051/ESTADO[2]_PC[7]_wide_mux_126_OUT<7>)
      FDCE:D                    0.102          hc051/PC_7
     ----------------------------------------
@@ -843,29 +845,28 @@ Delay:               6.829ns (Levels of Logic = 6)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'vga1/clk25'
-  Clock period: 5.445ns (frequency: 183.645MHz)
-  Total number of paths / destination ports: 2017 / 121
+  Clock period: 5.937ns (frequency: 168.435MHz)
+  Total number of paths / destination ports: 2752 / 144
 -------------------------------------------------------------------------
-Delay:               5.445ns (Levels of Logic = 5)
-  Source:            vga1/horizontal_counter_5 (FF)
-  Destination:       vga1/green_out (FF)
+Delay:               5.937ns (Levels of Logic = 4)
+  Source:            vga1/count_17 (FF)
+  Destination:       vga1/VerticalA_9 (FF)
   Source Clock:      vga1/clk25 rising
   Destination Clock: vga1/clk25 rising
 
-  Data Path: vga1/horizontal_counter_5 to vga1/green_out
+  Data Path: vga1/count_17 to vga1/VerticalA_9
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q             6   0.447   1.089  vga1/horizontal_counter_5 (vga1/horizontal_counter_5)
-     LUT5:I0->O            1   0.203   0.808  vga1/GND_12_o_vertical_counter[9]_AND_525_o3 (vga1/GND_12_o_vertical_counter[9]_AND_525_o3)
-     LUT3:I0->O            1   0.205   0.580  vga1/GND_12_o_vertical_counter[9]_AND_525_o4 (vga1/GND_12_o_vertical_counter[9]_AND_525_o4)
-     LUT6:I5->O            5   0.205   0.715  vga1/GND_12_o_vertical_counter[9]_AND_525_o6 (vga1/GND_12_o_vertical_counter[9]_AND_525_o)
-     LUT2:I1->O            1   0.205   0.684  vga1/_n0222_inv1 (vga1/_n0222_inv)
-     LUT6:I4->O            1   0.203   0.000  vga1/green_out_rstpot (vga1/green_out_rstpot)
-     FD:D                      0.102          vga1/green_out
+     FDCE:C->Q             2   0.447   0.961  vga1/count_17 (vga1/count_17)
+     LUT5:I0->O            1   0.203   0.808  vga1/GND_12_o_count[22]_equal_29_o<22>2 (vga1/GND_12_o_count[22]_equal_29_o<22>1)
+     LUT6:I3->O           12   0.205   0.909  vga1/GND_12_o_count[22]_equal_29_o<22>5 (vga1/GND_12_o_count[22]_equal_29_o)
+     LUT6:I5->O            1   0.205   0.580  vga1/_n0227_inv6 (vga1/_n0227_inv6)
+     LUT2:I1->O           20   0.205   1.092  vga1/_n0227_inv7 (vga1/_n0227_inv)
+     FDCE:CE                   0.322          vga1/VerticalB_0
     ----------------------------------------
-    Total                      5.445ns (1.570ns logic, 3.875ns route)
-                                       (28.8% logic, 71.2% route)
+    Total                      5.937ns (1.587ns logic, 4.350ns route)
+                                       (26.7% logic, 73.3% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'vga1/clk50'
@@ -892,7 +893,7 @@ Delay:               1.456ns (Levels of Logic = 0)
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
   Total number of paths / destination ports: 21 / 21
 -------------------------------------------------------------------------
-Offset:              3.963ns (Levels of Logic = 2)
+Offset:              3.965ns (Levels of Logic = 2)
   Source:            rst (PAD)
   Destination:       divclk1/clkdiv (FF)
   Destination Clock: clk rising
@@ -901,18 +902,18 @@ Offset:              3.963ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O           303   1.222   2.436  rst_IBUF (rst_IBUF)
+     IBUF:I->O           326   1.222   2.438  rst_IBUF (rst_IBUF)
      LUT6:I0->O            1   0.203   0.000  divclk1/clkdiv_rstpot (divclk1/clkdiv_rstpot)
      FD:D                      0.102          divclk1/clkdiv
     ----------------------------------------
-    Total                      3.963ns (1.527ns logic, 2.436ns route)
+    Total                      3.965ns (1.527ns logic, 2.438ns route)
                                        (38.5% logic, 61.5% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'divclk1/clkdiv'
   Total number of paths / destination ports: 2208 / 2196
 -------------------------------------------------------------------------
-Offset:              6.730ns (Levels of Logic = 4)
+Offset:              6.731ns (Levels of Logic = 4)
   Source:            rst (PAD)
   Destination:       ram1/ram8x8_32_7 (FF)
   Destination Clock: divclk1/clkdiv rising
@@ -921,35 +922,35 @@ Offset:              6.730ns (Levels of Logic = 4)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O           303   1.222   2.300  rst_IBUF (rst_IBUF)
-     LUT3:I0->O            4   0.205   0.684  ram1/_n2246_inv11 (ram1/_n2246_inv1)
-     LUT6:I5->O            4   0.205   0.788  ram1/_n2246_inv31 (ram1/_n2246_inv3)
-     LUT3:I1->O            8   0.203   0.802  ram1/_n2246_inv2 (ram1/_n2246_inv)
+     IBUF:I->O           326   1.222   2.302  rst_IBUF (rst_IBUF)
+     LUT3:I0->O            4   0.205   0.684  ram1/_n2247_inv11 (ram1/_n2247_inv1)
+     LUT6:I5->O            4   0.205   0.788  ram1/_n2247_inv31 (ram1/_n2247_inv3)
+     LUT3:I1->O            8   0.203   0.802  ram1/_n2247_inv2 (ram1/_n2247_inv)
      FDE:CE                    0.322          ram1/ram8x8_32_0
     ----------------------------------------
-    Total                      6.730ns (2.157ns logic, 4.573ns route)
-                                       (32.1% logic, 67.9% route)
+    Total                      6.731ns (2.157ns logic, 4.574ns route)
+                                       (32.0% logic, 68.0% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'vga1/clk25'
-  Total number of paths / destination ports: 90 / 89
+  Total number of paths / destination ports: 113 / 112
 -------------------------------------------------------------------------
-Offset:              5.570ns (Levels of Logic = 3)
+Offset:              5.910ns (Levels of Logic = 3)
   Source:            rst (PAD)
-  Destination:       vga1/vertical_counter_9 (FF)
+  Destination:       vga1/horizontal_counter_9 (FF)
   Destination Clock: vga1/clk25 rising
 
-  Data Path: rst to vga1/vertical_counter_9
+  Data Path: rst to vga1/horizontal_counter_9
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O           303   1.222   2.072  rst_IBUF (rst_IBUF)
-     LUT2:I1->O            1   0.205   0.580  vga1/_n0186_SW0 (N31)
-     LUT6:I5->O           10   0.205   0.856  vga1/_n0186 (vga1/_n0186)
-     FDRE:R                    0.430          vga1/vertical_counter_0
+     IBUF:I->O           326   1.222   2.074  rst_IBUF (rst_IBUF)
+     LUT6:I5->O            1   0.205   0.684  vga1/_n01981_SW0 (N21)
+     LUT6:I4->O           20   0.203   1.092  vga1/_n01981 (vga1/_n01981)
+     FDRE:R                    0.430          vga1/horizontal_counter_0
     ----------------------------------------
-    Total                      5.570ns (2.062ns logic, 3.508ns route)
-                                       (37.0% logic, 63.0% route)
+    Total                      5.910ns (2.060ns logic, 3.850ns route)
+                                       (34.9% logic, 65.1% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'divclk1/clkdiv'
@@ -999,7 +1000,7 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    4.314|         |         |         |
+clk            |    4.180|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock divclk1/clkdiv
@@ -1015,8 +1016,8 @@ Clock to Setup on destination clock vga1/clk25
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-divclk1/clkdiv |    4.766|         |         |         |
-vga1/clk25     |    5.445|         |         |         |
+divclk1/clkdiv |    4.991|         |         |         |
+vga1/clk25     |    5.937|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock vga1/clk50
@@ -1031,13 +1032,13 @@ vga1/clk50     |    1.456|         |         |         |
 
 
 Total REAL time to Xst completion: 22.00 secs
-Total CPU time to Xst completion: 22.01 secs
+Total CPU time to Xst completion: 21.81 secs
  
 --> 
 
-Total memory usage is 273580 kilobytes
+Total memory usage is 274220 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    9 (   0 filtered)
+Number of warnings :    8 (   0 filtered)
 Number of infos    :    5 (   0 filtered)
 

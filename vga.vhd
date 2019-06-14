@@ -145,12 +145,12 @@ begin
 			end if;
 		end if;
 		if memout = "00000001" then
-			--if countOK = 100000 then
+			if countOK = 100000 then
 				VerticalA <= VerticalA - "0000001111";
 				VerticalB <= VerticalB - "0000001111";
-			--	countOK <= 0;
---			end if;
-			--countOK <= countOK + 1;
+				countOK <= 0;
+			end if;
+			countOK <= countOK + 1;
 		end if;
 		
 		if memout = "00000000" then
@@ -177,12 +177,12 @@ begin
 
 		horizontal_counter <= horizontal_counter+"0000000001";
 		
-		if (horizontal_counter="1100100000") then
+		if (horizontal_counter="1100001011") then
 			vertical_counter <= vertical_counter+"0000000001";
 			horizontal_counter <= "0000000000";
 		end if;
 		
-		if (vertical_counter="1000001001") then
+		if (vertical_counter="1000000111") then
 			vertical_counter <= "0000000000";
 		end if;
 	end if;
