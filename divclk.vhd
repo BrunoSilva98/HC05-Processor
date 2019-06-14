@@ -26,13 +26,13 @@ begin
 	elsif clk'event and clk = '1' then
 		cont <= cont + 1;
 		
-		if cont <= 500000 then
+		if cont <= 2 then
 			clkdiv <= '0';
 		else
 			clkdiv <= '1';
 		end if;
 		
-		if cont = 1000000 then
+		if cont = 3 then
 			cont <= 0;
 		end if;
 	end if;

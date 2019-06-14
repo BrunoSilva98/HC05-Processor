@@ -79,27 +79,6 @@ begin
 --				when others =>   		seg <= "10001110";--F
 --end case;
 
-case NUMERO_GUESS is
-			   when 0 =>   seg <= "11000000";--0
-			   when 1 =>   seg <= "11111001";--1
-			   when 2 =>   seg <= "10100100";--2
-		      when 3 =>   seg <= "10110000";--3
-				when 4 =>   seg <= "10011001";--4
-				when 5 =>   seg <= "10010010";--5
-				when 6 =>   seg <= "10000010";--6
-				when 7 =>   seg <= "11111000";--7
-				when 8 =>   seg <= "10000000";--8
-				when 9 =>   seg <= "10011000";--9
-				when 10 =>   seg <= "10001000";--A
-				when 11 =>   seg <= "10000011";--B
-				when 12 =>   seg <= "11000110";--C
-				when 13 =>   seg <= "10100001";--d
-				when 14 =>   seg <= "10000110";--E
-				when others =>   		seg <= "10001110";--F
-end case;
-
-
-
 	if rst = '1' then
 		A  	 <= "00000000";
 		PC 	 <= "00000000";
@@ -110,6 +89,25 @@ end case;
 		CONT_GUESS <= 0;
 		
 	elsif clk'event and clk = '1' then	
+
+		case NUMERO_GUESS is
+						when 0 =>   seg <= "11000000";--0
+						when 1 =>   seg <= "11111001";--1
+						when 2 =>   seg <= "10100100";--2
+						when 3 =>   seg <= "10110000";--3
+						when 4 =>   seg <= "10011001";--4
+						when 5 =>   seg <= "10010010";--5
+						when 6 =>   seg <= "10000010";--6
+						when 7 =>   seg <= "11111000";--7
+						when 8 =>   seg <= "10000000";--8
+						when 9 =>   seg <= "10011000";--9
+						when 10 =>   seg <= "10001000";--A
+						when 11 =>   seg <= "10000011";--B
+						when 12 =>   seg <= "11000110";--C
+						when 13 =>   seg <= "10100001";--d
+						when 14 =>   seg <= "10000110";--E
+						when others =>   		seg <= "10001110";--F
+		end case;	
 		
 		IF CONT_GUESS = 15 THEN
 			CONT_GUESS <= 0;

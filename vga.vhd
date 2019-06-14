@@ -45,8 +45,8 @@ signal VerticalA   			: STD_LOGIC_VECTOR (9 downto 0);
 signal VerticalB   			: STD_LOGIC_VECTOR (9 downto 0);
 signal HorizontalA 			: STD_LOGIC_VECTOR (9 downto 0);
 signal HorizontalB 			: STD_LOGIC_VECTOR (9 downto 0);
-signal count 		 		: INTEGER range 0 to 5000001;
-signal countOK				: INTEGER range 0 to 5000001;
+signal count 		 		: INTEGER range 0 to 50000001;
+signal countOK				: INTEGER range 0 to 50000001;
 
 begin
 
@@ -124,7 +124,7 @@ begin
 				blue_out <= '0';
 				
 			elsif printa = 1 then
-				red_out <= '1';
+				red_out <= '0';
 				green_out <= '0';
 				blue_out <= '0';
 				
@@ -145,18 +145,18 @@ begin
 			end if;
 		end if;
 		if memout = "00000001" then
-			if countOK = 100000 then
+--			if countOK = 500000 then
 				VerticalA <= VerticalA - "0000001111";
 				VerticalB <= VerticalB - "0000001111";
-				countOK <= 0;
-			end if;
-			countOK <= countOK + 1;
+--				countOK <= 0;
+--			end if;
+--			countOK <= countOK + 1;
 		end if;
 		
 		if memout = "00000000" then
-			if count = 2000000 then
-				VerticalA <= VerticalA + "0000000001";
-				VerticalB <= VerticalB + "0000000001";
+			if count = 500 then
+				VerticalA <= VerticalA + "0000001111";
+				VerticalB <= VerticalB + "0000001111";
 				count <= 0;
 			end if;
 			
