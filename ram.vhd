@@ -34,7 +34,7 @@ begin
 		RAM8X8(1) <= "10101010"; -- Input do switch
 		RAM8X8(2) <= "00001111"; -- Compara resultado do switch com número correto
 		RAM8X8(3) <= "00111011"; -- Jmp se zero, caso tenha acertado o número
-		RAM8X8(4) <= "00000000"; -- endereço 7
+		RAM8X8(4) <= "00000111"; -- endereço 7
 		RAM8X8(5) <= "00111010"; -- JMP incondicional caso tenha errado o número
 		RAM8X8(6) <= "00000001"; -- Endereço 1
 		RAM8X8(7) <= "10101100"; -- Escrever no endereço 240
