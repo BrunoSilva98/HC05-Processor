@@ -1,9 +1,3 @@
-----------------------------------------------------------------------------------
--- Author:  Bruno Passos
--- Module:  Top
--- Version: 0.1 
-----------------------------------------------------------------------------------
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
@@ -15,7 +9,7 @@ entity top is
 			  an    : out  STD_LOGIC_VECTOR (3 downto 0);
 			  seg   : out  STD_LOGIC_VECTOR (7 downto 0);
 			  led   : out  STD_LOGIC_VECTOR (7 downto 0);
-			  red_out : out STD_LOGIC;
+			  red_out : out STD_LOGIC; --Controles para o video
 			  green_out : out STD_LOGIC;
 			  blue_out : out STD_LOGIC;
 			  hs_out : out STD_LOGIC;
@@ -34,7 +28,7 @@ component ram is
            din : in  STD_LOGIC_VECTOR (7 downto 0);
            rw : in  STD_LOGIC;
            dout : out  STD_LOGIC_VECTOR (7 downto 0);
-		   memout : out STD_LOGIC_VECTOR (7 downto 0)
+		   memout : out STD_LOGIC_VECTOR (7 downto 0) --Utilizado na VGA para controle da direção do quadrado
 		 );
 end component;
 
@@ -64,8 +58,8 @@ end component;
 
 --VGA
 component vga is
-    Port ( clk : in  STD_LOGIC;
-           rst : in  STD_LOGIC;
+    Port (    clk : in  STD_LOGIC;
+			  rst : in  STD_LOGIC;
 			  din : in STD_LOGIC_VECTOR (7 downto 0);
 			  red_out : out STD_LOGIC;
 			  green_out : out STD_LOGIC;

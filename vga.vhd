@@ -1,22 +1,3 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date:    19:49:08 06/05/2019 
--- Design Name: 
--- Module Name:    vga - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
---
--- Dependencies: 
---
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
---
-----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
@@ -24,8 +5,8 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
 entity vga is
-    Port ( clk : in  STD_LOGIC;
-           rst : in  STD_LOGIC;
+    Port (    clk : in  STD_LOGIC;
+              rst : in  STD_LOGIC;
 			  din : in STD_LOGIC_VECTOR (7 downto 0);
 			  red_out : out STD_LOGIC;
 			  green_out : out STD_LOGIC;
@@ -45,11 +26,11 @@ signal VerticalA   			: STD_LOGIC_VECTOR (9 downto 0);
 signal VerticalB   			: STD_LOGIC_VECTOR (9 downto 0);
 signal HorizontalA 			: STD_LOGIC_VECTOR (9 downto 0);
 signal HorizontalB 			: STD_LOGIC_VECTOR (9 downto 0);
-signal count 		 		: INTEGER range 0 to 50000001;
-signal countOK				: INTEGER range 0 to 50000001;
+signal count 		 		: INTEGER range 0 to 501;
 
 begin
 
+--Processos clk e clk50 utilizados somente para diminuição da frequencia do clock
 process (clk)
 begin		
 	if CLK'EVENT and CLK = '1' then
@@ -76,30 +57,30 @@ end process;
 
 process (clk25,rst)
 
-variable printa: integer range 0 to 10;
-variable ganhou: STD_LOGIC;
+variable printa: integer range 0 to 10; --Define a cor a ser usada
+variable ganhou: STD_LOGIC; -- Variaveis utilizadas para travar a tela quando ganhar ou perder
 variable perdeu: STD_LOGIC;
 
 begin
 	if rst = '1' then
-		VerticalA <= "0011011100"; -- 220
-		VerticalB <= "0011110000"; -- 240
+		VerticalA <= "0011011100"; -- Posição da tela onde o quadrado será pintado
+		VerticalB <= "0011110000";
 		HorizontalA <= "0101111100";
 		HorizontalB <= "0110010000";
 		count <= 0;
-		countOK <= 0;
 		ganhou := '0';
 		perdeu := '0';
 		
 	elsif clk25'event and clk25 = '1' then
-	
+		--Indica a dimensão da tela
 		if (horizontal_counter >= "0001111000" ) and (horizontal_counter < "1100001100" ) and -- 120 e 780 
 		   (vertical_counter >= "0000101000" ) and (vertical_counter < "1000001000" ) then -- 40 e 520
-			printa := 1;
-		
+				printa := 1; --Fundo será pintado de preto
+			
+			--Comparações para determinar que o quadrado deve ser pintado neste local
 			if (horizontal_counter >= HorizontalA) and (horizontal_counter < HorizontalB) and
 					(vertical_counter >= VerticalA) and (vertical_counter < VerticalB) then
-						printa := 0;
+						printa := 0; --Quadrado de verde
 			end if;
 			
 			if VerticalA < "0000100111" then -- Se a borda do quadrado for menor que a parte superior, ganhou
@@ -109,13 +90,9 @@ begin
 				perdeu := '1';
 			end if;
 			
-			
-			if ganhou = '1' then
-				printa := 2;
-			
-			
-			elsif perdeu = '1' then
-				printa := 3;
+			--travando a tela em preto caso tenha ganhado ou perdido
+			if (ganhou = '1') or (perdeu = '1') then
+				printa := 1;
 			end if;
 			
 			if printa = 0 then
@@ -126,43 +103,33 @@ begin
 			elsif printa = 1 then
 				red_out <= '0';
 				green_out <= '0';
-				blue_out <= '0';
-				
-			elsif printa = 2 then
-				red_out <= '0';
-				green_out <= '1';
-				blue_out <= '0';
-			
-			elsif printa = 3 then
-				red_out <= '1';
-				green_out <= '0';
-				blue_out <= '0';
+				blue_out <= '0';							
 			
 			else
-				red_out <= '0';
-				green_out <= '0';
+				red_out <= '1';
+				green_out <= '1';
 				blue_out <= '1';
 			end if;
 		end if;
+		--Verificando se a saida da memoria na posição 240 está em 1
+		--Caso esteja, o quadrado deve subir na tela
+		--Entrará duas vezes na subida, pois levam 2 bordas de subida para que seja escrito o zero novamente na memoria
 		if memout = "00000001" then
---			if countOK = 500000 then
 				VerticalA <= VerticalA - "0000001111";
 				VerticalB <= VerticalB - "0000001111";
---				countOK <= 0;
---			end if;
---			countOK <= countOK + 1;
 		end if;
 		
+		--Caso nao esteja, deve continuar descendo
 		if memout = "00000000" then
 			if count = 500 then
 				VerticalA <= VerticalA + "0000001111";
 				VerticalB <= VerticalB + "0000001111";
 				count <= 0;
-			end if;
-			
+			end if;			
 		count <= count + 1;
 		end if;
 		
+		--Trecho de código abaixo para varredura de tela
 		if (horizontal_counter > "0000000000")	and (horizontal_counter < "0001100001") then --96+1
 			hs_out <= '0';
 		else
@@ -176,7 +143,7 @@ begin
 		end if;
 
 		horizontal_counter <= horizontal_counter+"0000000001";
-		
+	
 		if (horizontal_counter="1100001011") then
 			vertical_counter <= vertical_counter+"0000000001";
 			horizontal_counter <= "0000000000";

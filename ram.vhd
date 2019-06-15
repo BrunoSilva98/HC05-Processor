@@ -1,9 +1,3 @@
-----------------------------------------------------------------------------------
--- Author:  Bruno Passos
--- Module:  Top
--- Version: 0.1 
-----------------------------------------------------------------------------------
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
@@ -29,7 +23,7 @@ process(clk, rst)
 begin
 	if rst = '1' then
 
--- INSTRUCOES PARA GERAR UM NUMERO NO DISPLAY
+-- INSTRUCOES PARA GERAR UM NUMERO NO DISPLAY, ESCREVER VALOR 1 CASO JOGADOR ACERTE O VALOR EM BINARIO, 0 CASO ERRE
 		RAM8X8(0) <= "11111111"; -- Gera o número
 		RAM8X8(1) <= "10101010"; -- Input do switch
 		RAM8X8(2) <= "00001111"; -- Compara resultado do switch com número correto
@@ -43,7 +37,7 @@ begin
 		RAM8X8(10) <= "00000000"; -- Valor 0
 		RAM8X8(11) <= "00111011"; -- Jmp incondicional
 		RAM8X8(12) <= "00000000"; -- Endereço 0
-		RAM8X8(240) <= "00000000"; -- Valor verificado no jogo
+		RAM8X8(240) <= "00000000"; -- Valor verificado no jogo, este valor sera alterado de acordo com a instrução de escrita
 		
 	elsif clk'event and clk = '1' then
 		-- Operação de escrita

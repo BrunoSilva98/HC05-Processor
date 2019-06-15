@@ -14,10 +14,10 @@ entity divclk is
 end divclk;
 
 architecture Behavioral of divclk is
-signal cont : integer range 0 to 1000001;
+signal cont : integer range 0 to 4;
 
 begin
-
+--Div para 25MHZ
 process(clk,rst)
 begin
 	if rst = '1' then

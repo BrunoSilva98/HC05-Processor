@@ -1,9 +1,3 @@
-----------------------------------------------------------------------------------
--- Author:  Bruno Passos
--- Module:  HC05
--- Version: 0.1 
-----------------------------------------------------------------------------------
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
@@ -11,18 +5,18 @@ use ieee.math_real.all;
 use ieee.numeric_std.all;
 
 entity hc05 is
-    Port ( clk   : in   STD_LOGIC;
-           rst   : in   STD_LOGIC;
-           dout  : in   STD_LOGIC_VECTOR (7 downto 0);
-           din   : out  STD_LOGIC_VECTOR (7 downto 0);
-           addr  : out  STD_LOGIC_VECTOR (7 downto 0);
-           rw    : out  STD_LOGIC;
+    Port (    clk   : in   STD_LOGIC;
+              rst   : in   STD_LOGIC;
+              dout  : in   STD_LOGIC_VECTOR (7 downto 0);
+			  din   : out  STD_LOGIC_VECTOR (7 downto 0);
+              addr  : out  STD_LOGIC_VECTOR (7 downto 0);
+              rw    : out  STD_LOGIC;
 			  led	  : out  STD_LOGIC_VECTOR (7 downto 0);
 			  enter : in STD_LOGIC; -- SW7
 			  dado  : in STD_LOGIC_VECTOR (3 downto 0); --SW4:1
 			  an : out  STD_LOGIC_VECTOR (3 downto 0);
 			  seg : out  STD_LOGIC_VECTOR (7 downto 0)
-			 );
+		 );
 end hc05;
 
 architecture Behavioral of hc05 is
@@ -60,25 +54,6 @@ led  <= PC;
 process(clk, rst)
 begin
 
---case DISPLAY_7 is
---			   when "00000000" =>   seg <= "11000000";--0
---			   when "00000001" =>   seg <= "11111001";--1
---			   when "00000010" =>   seg <= "10100100";--2
---		      when "00000011" =>   seg <= "10110000";--3
---				when "00000100" =>   seg <= "10011001";--4
---				when "00000101" =>   seg <= "10010010";--5
---				when "00000110" =>   seg <= "10000010";--6
---				when "00000111" =>   seg <= "11111000";--7
---				when "00001000" =>   seg <= "10000000";--8
---				when "00001001" =>   seg <= "10011000";--9
---				when "00001010" =>   seg <= "10001000";--A
---				when "00001011" =>   seg <= "10000011";--B
---				when "00001100" =>   seg <= "11000110";--C
---				when "00001101" =>   seg <= "10100001";--d
---				when "00001110" =>   seg <= "10000110";--E
---				when others =>   		seg <= "10001110";--F
---end case;
-
 	if rst = '1' then
 		A  	 <= "00000000";
 		PC 	 <= "00000000";
@@ -102,13 +77,14 @@ begin
 						when 8 =>   seg <= "10000000";--8
 						when 9 =>   seg <= "10011000";--9
 						when 10 =>   seg <= "10001000";--A
-						when 11 =>   seg <= "10000011";--B
+						when 11 =>   seg <= "10000011";--b
 						when 12 =>   seg <= "11000110";--C
 						when 13 =>   seg <= "10100001";--d
 						when 14 =>   seg <= "10000110";--E
 						when others =>   		seg <= "10001110";--F
 		end case;	
 		
+		--Utiliza um contador com base no clock para gerar número aleatorio
 		IF CONT_GUESS = 15 THEN
 			CONT_GUESS <= 0;
 		ELSE
@@ -222,7 +198,7 @@ begin
 																end if;
 																
 															end if;
-									WHEN "00001111" => 
+									WHEN "00001111" => 		-- Compara valor do número gerado com o valor do registrador A
 															if A = NUMERO_GUESS then
 																A <= "00000000";	
 															else															
@@ -230,7 +206,7 @@ begin
 															end if;	
 															ESTADO <= EXECUTA;
 									
-									WHEN "11111111" =>
+									WHEN "11111111" =>		-- Gera número 'aleatorio' para o display
 															NUMERO_GUESS <= CONT_GUESS;
 															ESTADO <= EXECUTA;
 													
@@ -241,9 +217,9 @@ begin
 														elsif FASE = "01" then
 															REGAUX <= PC;
 															din <= dout;
-															PC <= "11110000";
+															PC <= "11110000"; --Endereco fixo, pois é o unico utilizado no jogo
 															rw <= '1';
-															fase <= FASE + 1;
+															FASE <= FASE + 1;
 														elsif FASE = "10" then
 															rw <= '0';
 															PC <= REGAUX;
