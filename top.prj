@@ -1,3 +1,4 @@
+vhdl work "vga.vhd"
 vhdl work "ram.vhd"
 vhdl work "hc05.vhd"
 vhdl work "divclk.vhd"
